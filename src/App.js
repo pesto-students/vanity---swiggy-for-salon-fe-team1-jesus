@@ -1,8 +1,11 @@
+import Routing from "./routes/Routing";
+import {BrowserRouter as Router} from "react-router-dom"
+
 function App() {
   return (
-    <div>
-      Vanity
-    </div>
+    <Router>
+      <Routing/>
+    </Router>
   );
 }
 
