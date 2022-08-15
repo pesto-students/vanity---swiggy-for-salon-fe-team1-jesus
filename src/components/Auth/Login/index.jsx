@@ -1,13 +1,14 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary"
-import ErrorFallback from "../../pages/Error";
-import Landing from "../../pages/Landing/index";
+import Login from "../../Login";
+import ErrorFallback from "../../../pages/Error/index";
 
-const LandingPage = () => {
+const LoginPage = () => {
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Landing />
+            <Login />
         </ErrorBoundary>
     )
 }
-export default LandingPage;
+
+export default LoginPage;

@@ -2,33 +2,53 @@ import React, { useState } from "react";
 import SalonPicSignup1 from "../images/signup/salonpicsignuppage1.jpeg";
 import SalonPicSignup2 from "../images/signup/salonpicsignuppage2.jpeg";
 import Line from "./Line";
-import axios from "axios";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import * as EmailValidator from "email-validator"
+import useAxiosRequest from "../utils/axiosInstance";
 
 const Signup = () => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [budget, setBudget] = useState("");
-    const [gender, setGender] = useState("");
-    const [city, setCity] = useState("");
+    const [obj, setObj] = useState({
+        email: "",
+        password: "",
+        name: "",
+        phone: "",
+        budget: "",
+        gender: "",
+        city: ""
+    })
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setObj(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const axiosRequest = useAxiosRequest()
+
+    const emailValidation = () => {
+        const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+        if (!obj.email || regex.test(obj.email) === false) {
+            console.log("false")
+            return false;
+        }
+        return true;
+    }
 
     const handleSignup = (e) => {
         e.preventDefault()
-        const ans = EmailValidator.validate(email)
+        const ans = emailValidation()
 
-        if (name.length < 3) {
+        if (obj.name.length < 3) {
             toast("Please enter your full name.", {
                 autoClose: 4000,
                 position: toast.POSITION.TOP_CENTER,
                 transition: Zoom
             })
         }
-        else if (password.length < 6) {
+        else if (obj.password.length < 6) {
             toast("Password needs to be at least 6 characters.", {
                 autoClose: 4000,
                 position: toast.POSITION.TOP_CENTER,
@@ -46,35 +66,35 @@ const Signup = () => {
 
         else {
             let payload = {
-                "name": name,
-                "email": email,
-                "phone": phone,
-                "city": city,
-                "gender": gender,
-                "budget": budget,
-                "password": password,
+                "name": obj.name,
+                "email": obj.email,
+                "phone": obj.phone,
+                "city": obj.city,
+                "gender": obj.gender,
+                "budget": obj.budget,
+                "password": obj.password,
                 "rating": 0
             }
 
-            let config = {
-                method: "post",
-                url: "https://vanity-manual.el.6yr.appspot.com/api/v1/users/signup",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                data: payload
-            }
-
-            axios(config)
+            axiosRequest.post("/users/signup", payload)
                 .then((res) => {
-                    toast("Successfully registered!", {
-                        autoClose: 4000,
-                        position: toast.POSITION.TOP_CENTER,
-                        transition: Zoom
-                    })
+                    if (res === 200) {
+                        toast("Successfully registered!", {
+                            autoClose: 4000,
+                            position: toast.POSITION.TOP_CENTER,
+                            transition: Zoom
+                        })
+                    }
+                    else {
+                        toast("Sorry, there was an error with your request. Please try again.", {
+                            autoClose: 4000,
+                            position: toast.POSITION.TOP_CENTER,
+                            transition: Zoom
+                        })
+                    }
                 })
                 .catch((err) => {
-                    toast(`Sorry, there was an error with your request. Please try again.`, {
+                    toast(`Sorry, there was an error with your request. Please try again. Error: ${err}`, {
                         autoClose: 4000,
                         position: toast.POSITION.TOP_CENTER,
                         transition: Zoom
@@ -98,8 +118,8 @@ const Signup = () => {
                             className="w-full px-0 bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="name"
                             type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={obj.name}
+                            onChange={(e) => handleChange(e)}
                             placeholder="name"
                         />
 
@@ -112,8 +132,8 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="email"
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={obj.email}
+                            onChange={(e) => handleChange(e)}
                             placeholder="Email"
                         />
 
@@ -129,8 +149,8 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="password"
                             type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={obj.password}
+                            onChange={(e) => handleChange(e)}
                             placeholder="Password"
                         />
 
@@ -143,8 +163,8 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="phone"
                             type="text"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            value={obj.phone}
+                            onChange={(e) => handleChange(e)}
                             placeholder="Phone Number"
                         />
 
@@ -160,8 +180,8 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="city"
                             type="text"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
+                            value={obj.city}
+                            onChange={(e) => handleChange(e)}
                             placeholder="City"
                         />
 
@@ -174,8 +194,8 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="city"
                             type="select"
-                            value={gender}
-                            onChange={(e) => setGender(e.target.value)}
+                            value={obj.gender}
+                            onChange={(e) => handleChange(e)}
 
                         >
                             <option value=""></option>
@@ -195,8 +215,8 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="budget"
                             type="select"
-                            value={budget}
-                            onChange={(e) => setBudget(e.target.value)}
+                            value={obj.budget}
+                            onChange={(e) => handleChange(e)}
 
                         >
                             <option value=""></option>

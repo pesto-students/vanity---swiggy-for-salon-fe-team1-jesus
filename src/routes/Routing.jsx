@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar/index";
 import { Route, Routes } from "react-router-dom";
-import Landing from "../pages/Landing/index";
 import Line from "../components/Line";
-import Login from "../components/Login"
-import Signup from "../components/Signup";
+import LandingPage from "../components/Landing";
+import LoginPage from "../components/Auth/Login/index";
+import SignupPage from "../components/Auth/Signup/index";
 
 const Routing = () => {
     return (
@@ -12,9 +12,9 @@ const Routing = () => {
             <Navbar />
             <Line />
             <Routes>
-                <Route path="/" element={<Landing />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
             </Routes>
         </>
     )
