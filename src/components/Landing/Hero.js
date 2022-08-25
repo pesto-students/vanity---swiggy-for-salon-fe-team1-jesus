@@ -13,7 +13,7 @@ const Hero = () => {
                             <br className="hidden lg:inline-block" />IS HERE.
                         </div>
                         <p className="mb-8 text-lg leading-relaxed w-3/4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                        <Link to="/signup">
+                        <Link to="/dashboard">
                             <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
                                 <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
 

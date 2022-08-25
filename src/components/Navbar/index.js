@@ -13,7 +13,9 @@ const Navbar = () => {
                 <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
                     <div className="mr-5 text-lg hover:text-gray-900  px-2 py-1 rounded cursor-pointer">Home</div>
                     <div className="mr-5 text-lg hover:text-gray-900 cursor-pointer">About</div>
-                    <div className="mr-5 text-lg hover:text-gray-900 cursor-pointer">Book</div>
+                    <Link to="/dashboard">
+                        <div className="mr-5 text-lg hover:text-gray-900 cursor-pointer">Book</div>
+                    </Link>
                     <div className="mr-5 text-lg hover:text-gray-900 cursor-pointer">FAQs</div>
                 </nav>
                 <Link to="/login">
