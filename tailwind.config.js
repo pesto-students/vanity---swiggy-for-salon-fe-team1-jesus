@@ -28,7 +28,9 @@ module.exports = withMT({
         'mint': "#d0f4de",
         'blue': "#a9def9",
         'lavender': "#e4c1f9",
-        'pink': "#ff99c8"
+        'pink': "#ff99c8",
+        'cream': "#ffeaea",
+        'lightPink': "#ffdede"
       }
     },
   },

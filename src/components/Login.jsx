@@ -1,17 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SalonPic1 from "../images/login/salonpicloginpage1.jpeg";
 import SalonPic2 from "../images/login/salonpicloginpage2.jpeg"
 import Line from "./Line";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login, reset } from "../redux/auth/authSlice";
+import Spinner from "./Spinner";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [userDetails, setUserDetails] = useState({
+        email: "",
+        password: ""
+    })
+
+    const { email, password } = userDetails;
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+    useEffect(() => {
+        if (isError) {
+            toast.error(message)
+        }
+        if (isSuccess || user) {
+            navigate("/dashboard");
+        }
+
+        dispatch(reset())
+    }, [user, isError, isSuccess, message, navigate, dispatch])
+
+    const handleChange = (e) => {
+        setUserDetails(prevState => ({
+            ...prevState,
+            [e.target.id]: e.target.value
+        }))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const payload = { email: email, password: password }
+        dispatch(login(payload))
+    }
+
+    if (isLoading) {
+        return (
+            <Spinner />
+        )
+    }
 
     return (
         <div className="font-lora flex flex-row px-16 space-x-6 py-16 bg-lavenderbottom">
             <div className="w-1/2 flex flex-col space-y-2">
+                <ToastContainer />
                 <img src={SalonPic1} alt="salon pic login page" />
                 <img src={SalonPic2} alt="salon pic 2 login page" />
             </div>
@@ -38,7 +82,7 @@ const Login = () => {
                         id="email"
                         type="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => handleChange(e)}
                         placeholder="Email"
                     />
 
@@ -52,7 +96,7 @@ const Login = () => {
                         id="password"
                         type="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => handleChange(e)}
                         placeholder="Password"
                     />
 
@@ -61,7 +105,7 @@ const Login = () => {
                     </span>
                 </label>
                 <div className="w-full h-2"></div>
-                <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
+                <div onClick={(e) => handleSubmit(e)} className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
                     <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
                     <span className="relative block px-20 py-3 rounded bg-white border-2 border-current">
