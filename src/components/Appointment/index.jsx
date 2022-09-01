@@ -20,8 +20,8 @@ const AppointmentPage = () => {
     return (
         <div className="flex flex-col font-lora space-y-8 items-center py-16">
             <SalonCard2 item={item} />
-            <div className="font-aboreto text-3xl font-bold">Book Appointment</div>
-            <div className="flex flex-row space-x-8 px-24 py-24 w-full divide-black divide-x-2">
+            <div className="font-aboreto text-3xl font-bold pt-10">Book Appointment</div>
+            <div className="flex flex-row space-x-8 px-24 py-14 w-full divide-black divide-x-2">
                 <AppointmentForm />
                 <AppointmentCalender />
             </div>

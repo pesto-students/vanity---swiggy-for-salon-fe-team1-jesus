@@ -1,59 +1,29 @@
 import React from "react";
 import SalonServiceList from "./ServiceList";
 
-const services = [{
-    servicesTitle: "Hair Cuts",
-    subServices: [{
-        subServiceTitle: "Women Hair Cut - Short",
-        price: 400
-    }, {
-        subServiceTitle: "Women Hair Cut - Long",
-        price: 650
+const services = [
+    {
+        "serviceId": "SVC-05ae8652-54fa-4163-9329-53a0151d1f0f",
+        "service": "Haircut",
+        "subservice": "Womens Haircut - short",
+        "price": 450,
+        "time": "00:45:00",
+        "salonId": "SID-6bac1ba9-7e2e-46c6-94bc-71960fb47ef6"
     },
     {
-        subServiceTitle: "Men Hair Cut",
-        price: 300
-    }]
-}, {
-    servicesTitle: "Waxing",
-    subServices: [{
-        subServiceTitle: "Arms Waxing - Honey",
-        price: 250
-    }, {
-        subServiceTitle: "Legs Waxing - Honey",
-        price: 450
-    }, {
-        subServiceTitle: "Arms Waxing - Rica",
-        price: 400
-    }, {
-        subServiceTitle: "Legs Waxing - Rica",
-        price: 600
-    }]
-}, {
-    servicesTitle: "Facials",
-    subServices: [{
-        subServiceTitle: "Gold Facial",
-        price: 600
-    }, {
-        subServiceTitle: "Diamond Facial",
-        price: 800
-    }, {
-        subServiceTitle: "Platinum Facial",
-        price: 1000
-    }, {
-        subServiceTitle: "Fruit Facial",
-        price: 700
-    }, {
-        subServiceTitle: "Honey Facial",
-        price: 900
-    },
-    ]
-}]
+        "serviceId": "SVC-1f66de1b-4613-449f-a039-7ba086b75632",
+        "service": "Haircut",
+        "subservice": "Mens Haircut",
+        "price": 350,
+        "time": "00:40:00",
+        "salonId": "SID-6bac1ba9-7e2e-46c6-94bc-71960fb47ef6"
+    }
+]
+
 
 const SalonServices = () => {
     return (
         <div className="w-4/6 flex flex-col">
-            <h2 className="text-3xl px-6 font-semibold py-4">Salon Menu</h2>
             {services.map((item, i) => {
                 return (
                     <div key={i}>

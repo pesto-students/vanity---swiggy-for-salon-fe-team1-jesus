@@ -10,10 +10,9 @@ const AppointmentForm = () => {
     })
 
     const handleChange = e => {
-        const { name, value } = e.target;
         setObj(prevState => ({
             ...prevState,
-            [name]: value
+            [e.target.id]: e.target.value
         }));
     };
 
