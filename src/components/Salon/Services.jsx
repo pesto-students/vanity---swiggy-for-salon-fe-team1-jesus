@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import SalonServiceList from "./ServiceList";
+import SalonServiceList from "./ServiceList.jsx";
 
 const SalonServices = () => {
 

@@ -1,5 +1,5 @@
 import React from "react";
-import SingleItem from "./SingleItem";
+import SingleItem from "./SingleItem.jsx";
 
 const SalonServiceList = ({ serviceList }) => {
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Filters from "./Filters";
-import Offers from "./Offers";
-import SalonList from "./SalonList";
+import Filters from "./Filters.jsx";
+import Offers from "./Offers.jsx";
+import SalonList from "./SalonList.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { setSalons } from "../../redux/salons/salonSlice";
-import City from "./City";
-import Sort from "./Sort";
-import Search from "./Search";
+import City from "./City.jsx";
+import Sort from "./Sort.jsx";
+import Search from "./Search.jsx";
 
 const DashboardPage = () => {
 

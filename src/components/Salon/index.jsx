@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import SalonCart from "./Cart";
-import SalonCard2 from "./SalonCard2";
-import SalonServices from "./Services";
+import SalonCart from "./Cart.jsx";
+import SalonCard2 from "./SalonCard2.jsx";
+import SalonServices from "./Services.jsx";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { setCurrentSalon } from "../../redux/salons/salonSlice";

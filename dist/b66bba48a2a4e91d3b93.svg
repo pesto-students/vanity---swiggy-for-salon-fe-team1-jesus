@@ -1,0 +1,19 @@
+var _Path;
+
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+import Svg, { Path } from "react-native-svg";
+
+var SvgLavenderbottom = function SvgLavenderbottom(props) {
+  return /*#__PURE__*/React.createElement(Svg, _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 600 320"
+  }, props), _Path || (_Path = /*#__PURE__*/React.createElement(Path, {
+    fill: "#e4c1f9",
+    fillOpacity: 0.6,
+    d: "m0 224 48 5.3C96 235 192 245 288 240s192-27 288-48 192-43 288-37.3c96 5.3 192 37.3 288 32 96-5.7 192-47.7 240-69.4l48-21.3v224H0Z"
+  })));
+};
+
+export default SvgLavenderbottom;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CartItem from "./CartItem";
-import Button from "../Button"
+import CartItem from "./CartItem.jsx";
+import Button from "../Button.jsx"
 import { useNavigate } from "react-router";
 import { reset } from "../../redux/cart/cartSlice";
 

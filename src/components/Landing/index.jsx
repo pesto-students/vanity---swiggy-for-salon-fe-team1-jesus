@@ -1,7 +1,7 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary"
-import ErrorFallback from "../../pages/Error";
-import Landing from "../../pages/Landing/index";
+import ErrorFallback from "../../pages/Error/index.jsx";
+import Landing from "../../pages/Landing/index.jsx";
 
 const LandingPage = () => {
     return (

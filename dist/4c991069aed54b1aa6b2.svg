@@ -1,0 +1,19 @@
+var _Path;
+
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+import Svg, { Path } from "react-native-svg";
+
+var SvgYellowtop = function SvgYellowtop(props) {
+  return /*#__PURE__*/React.createElement(Svg, _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 700 500"
+  }, props), _Path || (_Path = /*#__PURE__*/React.createElement(Path, {
+    fill: "#fcf6bd",
+    fillOpacity: 0.6,
+    d: "m0 64 21.8-5.3C43.6 53 87 43 131 64c43.5 21 87 75 131 117.3 43.5 42.7 87 74.7 131 80 43.4 5.7 87-16.3 131-53.3 43.3-37 87-91 131-112 43.2-21 87-11 130 10.7 44.1 21.3 88 53.3 131 42.6C960 139 1004 85 1047 64c43.9-21 88-11 131 5.3 43.8 15.7 87 37.7 131 64 43.7 26.7 87 58.7 109 74.7l22 16V0H0Z"
+  })));
+};
+
+export default SvgYellowtop;
