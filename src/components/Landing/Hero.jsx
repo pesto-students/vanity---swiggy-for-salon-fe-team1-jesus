@@ -1,5 +1,4 @@
 import React from "react";
-import SalonPic from "../../images/heropics.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -23,7 +22,7 @@ const Hero = () => {
                     </Link>
                 </div>
                 <div className="w-1/2">
-                    <img className="object-cover object-center" alt="hero" src={SalonPic} />
+                    <img className="object-cover object-center" alt="hero" src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/website/heropics.png" />
 
                 </div>
             </div>
