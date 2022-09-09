@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import SalonPic1 from "../images/login/salonpicloginpage1.jpeg";
-import SalonPic2 from "../images/login/salonpicloginpage2.jpeg"
 import Line from "./Line.jsx";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -56,8 +54,8 @@ const Login = () => {
         <div className="font-lora flex flex-row px-16 space-x-6 py-16 bg-lavenderbottom">
             <div className="w-1/2 flex flex-col space-y-2">
                 <ToastContainer />
-                <img src={SalonPic1} alt="salon pic login page" />
-                <img src={SalonPic2} alt="salon pic 2 login page" />
+                <img src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/login/salonpicloginpage1.jpeg" alt="salon pic login page" />
+                <img src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/login/salonpicloginpage2.jpeg" alt="salon pic 2 login page" />
             </div>
             <div className="w-1/2 flex flex-col text-xl p-10 space-y-6 items-center">
                 <div className="text-5xl mb-6 font-aboreto">Vanity</div>

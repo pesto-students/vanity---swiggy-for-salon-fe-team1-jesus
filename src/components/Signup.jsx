@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import SalonPicSignup1 from "../images/signup/salonpicsignuppage1.jpeg";
-import SalonPicSignup2 from "../images/signup/salonpicsignuppage2.jpeg";
 import Line from "./Line.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -213,8 +211,8 @@ const Signup = () => {
                 <Line />
             </div>
             <div className="flex flex-col w-1/2 space-y-6">
-                <img alt="salon1" src={SalonPicSignup1} />
-                <img alt="salon2" src={SalonPicSignup2} />
+                <img alt="salon1" src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/signup/salonpicsignuppage1.jpeg" />
+                <img alt="salon2" src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/signup/salonpicsignuppage2.jpeg" />
             </div>
         </div>
     )
