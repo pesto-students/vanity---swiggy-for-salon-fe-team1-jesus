@@ -1,30 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import SalonCard2 from "../Salon/SalonCard2";
 import AppointmentCalender from "./Calendar";
 import AppointmentForm from "./Form";
-
-const item = {
-    "name": "Naturals salons",
-    "address": "Virar road, panvel 444601",
-    "city": "Mumbai",
-    "photos": ["nat1.jpg", "nat2.jpg"],
-    "ownerName": "Robert Pattinson",
-    "ownerQuote": "One woman’s passion led to opening the first Naturals salon. Today, with over 700 salons across India, Naturals is India’s No.1 hair and beauty salon. At Naturals, we believe in empowering women entrepreneurs and encouraging their business pursuits through our franchise model. Over these 22 years, we have created and curated business opportunities for women across India.",
-    "manPower": 4,
-    "ratings": 3.9,
-    "bestFor": "Both",
-    "average_cost": "₹₹"
-}
+import Button from "../Button"
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { sendBooking } from "../../redux/booking/bookingSlice";
 
 const AppointmentPage = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const { cart, totalCost, serviceIds, currSalonId } = useSelector((state) => state.cart)
+    console.log(cart, "cart")
+    const [newDate, setNewDate] = useState(new Date());
+    const [newTime, setNewTime] = useState("");
+    const [appUser, setAppUser] = useState({
+        "email": "",
+        "name": "",
+        "phone": "",
+        "req": ""
+    })
+    const handleChange = e => {
+        setAppUser(prevState => ({
+            ...prevState,
+            [e.target.id]: e.target.value
+        }));
+    };
+
+    const handleEndTime = () => {
+        const splitTime = newTime.split(":");
+        const endTime = Number(splitTime[1]) + 1
+        if (endTime < 10) {
+            return "00:0" + endTime + ":00"
+        }
+        else {
+            return "00:" + endTime + ":00"
+        }
+    }
+
+    const handleBookingDate = () => {
+        let freshDate = newDate.toLocaleDateString();
+        freshDate = freshDate.split("/")
+        let finalString = freshDate[2] + "-" + freshDate[1] + "-" + freshDate[0]
+        return finalString;
+    }
+
+    const handleAppointment = () => {
+        navigate("/appointmentconfirmation")
+        const bookingDate = handleBookingDate()
+        const endTime = handleEndTime();
+        const payload = {
+            bookingDate: bookingDate,
+            startTime: newTime,
+            endTime: endTime,
+            serviceIds: serviceIds,
+            totalAmount: totalCost,
+            paymentStatus: "Not done",
+            salonId: currSalonId
+        }
+        dispatch(sendBooking(payload))
+    }
+
     return (
         <div className="flex flex-col font-lora space-y-8 items-center py-16">
-            <SalonCard2 item={item} />
+            <SalonCard2 />
             <div className="font-aboreto text-3xl font-bold pt-10">Book Appointment</div>
-            <div className="flex flex-row space-x-8 px-24 py-14 w-full divide-black divide-x-2">
-                <AppointmentForm />
-                <AppointmentCalender />
+            <div className="flex flex-row space-x-8 px-[20%] py-14 w-full divide-black divide-x-2">
+                <AppointmentForm appUser={appUser} handleChange={handleChange} />
+                <AppointmentCalender newTime={newTime} setNewTime={setNewTime} newDate={newDate} setNewDate={setNewDate} />
             </div>
+            <Button click={handleAppointment} clr="lavender" str="Book Appointment"></Button>
         </div>
     )
 }

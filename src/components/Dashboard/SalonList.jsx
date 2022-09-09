@@ -5,7 +5,7 @@ const SalonList = ({ data }) => {
 
     return (
         <div className="w-4/6 justify-center">
-            {data.map((item, i) => {
+            {data?.map((item, i) => {
                 return (
                     <SalonCard key={i} item={item} />
                 )

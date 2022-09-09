@@ -4,7 +4,7 @@ const Filters = () => {
     return (
         <div className=" w-1/6">
             <form
-                className="relative  mx-auto overflow-auto bg-white divide-y divide-black border-2 rounded-lg border-black"
+                className="relative bg-white  mx-auto overflow-auto divide-y divide-black border-2 rounded-lg border-black"
                 role="dialog"
                 aria-label="Filters"
             >

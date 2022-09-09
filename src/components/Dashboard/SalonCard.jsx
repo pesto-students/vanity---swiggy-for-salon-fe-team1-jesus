@@ -2,23 +2,22 @@ import React from "react";
 import SalonPic from "../../images/salonpic.jpeg";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCurrentSalon } from "../../redux/salons/salonSlice"
+import { setCurrentSalon, setItem } from "../../redux/salons/salonSlice";
 
 const SalonCard = ({ item }) => {
 
-    const dispatch = useDispatch()
-
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const handleForward = () => {
-        dispatch(setCurrentSalon(item))
-        navigate(`/salon/${item.name}`)
+        dispatch(setItem(item))
+        dispatch(setCurrentSalon(item.salonId));
+        navigate(`/salon/${item.salonId}`)
     }
 
     return (
         <div className="w-full px-8 pb-6 font-lora" onClick={handleForward}>
             <div className="cursor-pointer w-full relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
-
+                <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
                 <span className="p-4 relative flex flex-row px-8 py-3 bg-white rounded border-2 border-current">
                     <div className="w-1/5">
                         <img alt="salon pic" src={SalonPic} />

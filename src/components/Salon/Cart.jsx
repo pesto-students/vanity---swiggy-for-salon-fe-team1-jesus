@@ -1,16 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import Button from "../Button"
 import { useNavigate } from "react-router";
+import { reset } from "../../redux/cart/cartSlice";
 
 const SalonCart = () => {
 
     const cart = useSelector((state) => state.cart)
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleAppointment = () => {
         navigate("/appointments")
+    }
+
+    const handleCurrent = () => {
+        navigate(`/salon/${cart.currSalonId}`)
+    }
+
+    const handleReset = () => {
+        dispatch(reset());
     }
 
     const getTotalQuantity = () => {
@@ -38,7 +48,11 @@ const SalonCart = () => {
                 <div className="ml-auto mr-0">INR {getTotalQuantity() || 0} </div>
             </div>
             <div className="h-[1px] bg-black mt-6 mb-10"></div>
-            {cart.cart.length > 0 && <Button click={handleAppointment} str="Book Appointment" clr="black"></Button>}
+            {cart.cart.length > 0 && <div className="flex flex-row space-x-4 justify-center">
+                <Button click={handleAppointment} str="Book Appointment" clr="black"></Button>
+                <Button click={handleReset} str="Clear Cart" clr="black"></Button>
+            </div>}
+            <Button click={handleCurrent} str="Go to current salon" clr="black"></Button>
         </div >
     )
 }

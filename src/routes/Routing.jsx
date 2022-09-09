@@ -10,6 +10,8 @@ import SignupPage from "../components/Auth/Signup/index";
 import DashboardPage from "../components/Dashboard";
 import SalonDetails from "../components/Salon";
 import AppointmentPage from "../components/Appointment";
+import AppointmentConfirmation from "../components/Confirmation";
+import Profile from "../components/Profile";
 
 const Routing = () => {
     return (
@@ -23,6 +25,8 @@ const Routing = () => {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/appointmentconfirmation" element={<AppointmentConfirmation />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </>
     )

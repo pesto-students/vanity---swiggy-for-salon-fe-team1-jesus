@@ -1,7 +1,10 @@
 import React from "react";
 import SalonPic from "../../images/salonpic.jpeg";
+import { useSelector } from "react-redux";
 
-const SalonCard2 = ({ item }) => {
+const SalonCard2 = () => {
+
+    const { item } = useSelector((state) => state.salon)
 
     return (
         <div className="w-1/2 px-8 font-lora">
@@ -13,12 +16,12 @@ const SalonCard2 = ({ item }) => {
                     </div>
                     <div className="flex w-full flex-col p-4 space-y-10">
                         <div className="flex flex-row">
-                            <div className="text-2xl font-aboreto font-bold"> {item.name} </div>
-                            <div className="mr-0 ml-auto text-xl"> Rating: {item.ratings}/5 </div>
+                            <div className="text-2xl font-aboreto w-4/5 font-bold"> {item.name} </div>
+                            <div className="mr-0 ml-auto text-xl"> Rating: {item.rating}/10 </div>
                         </div>
                         <div className="text-xl"> {item.address} </div>
                         <div className="flex flex-row">
-                            <div className="text-xl"> Average Cost: {item.average_cost}</div>
+                            <div className="text-xl"> Average Cost: {item.avgCost}</div>
                             <div className="mr-0 ml-auto text-xl"> {item.bestFor} </div>
                         </div>
                     </div>

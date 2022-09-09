@@ -2,12 +2,12 @@ import React from "react";
 
 const Features = () => {
     return (
-        <div className=" text-black">
-            <div className="bg-bluebottom">
+        <div className=" text-black bg-cream">
+            <div className="bg-lightPink rounded-t-full">
                 <div className="container mx-auto px-16 py-24 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                     <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
                         <div className="lg:w-1/2">
-                            <div className="max-w-md mb-6 font-sans text-5xl font-bold tracking-tight text-black  sm:leading-none xl:max-w-lg">
+                            <div className="max-w-md font-aboreto mb-6  text-5xl font-bold tracking-tight text-black  sm:leading-none xl:max-w-lg">
                                 HOW IT WORKS
                             </div>
                         </div>
@@ -38,8 +38,8 @@ const Features = () => {
                             </p>
 
                         </div>
-                        <div className="max-w-md border-2 bg-mint border-black rounded p-2">
-                            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-mint">
+                        <div className="max-w-md border-2 bg-beige border-black rounded p-2">
+                            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-beige">
                                 <svg
                                     className="w-12 h-12 text-deep-purple-accent-400"
                                     stroke="currentColor"

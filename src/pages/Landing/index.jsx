@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import Hero from "../../components/Landing/Hero";
+import Testimonials from "../../components/Landing/Testimonials";
 
 const Landing = () => {
 
@@ -9,6 +10,7 @@ const Landing = () => {
             <Hero />
             <Suspense fallback={<h1>Loading...</h1>}>
                 <Features />
+                <Testimonials />
             </Suspense>
         </div>
     )

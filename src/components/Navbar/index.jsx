@@ -35,9 +35,9 @@ const Navbar = () => {
                 {user ?
 
                     (<>
-                        <div className="text-xl pr-4 font-aboreto font-bold"> Welcome, {user.name} </div>
+                        <Link to="/profile"><div className="text-xl pr-4 font-aboreto font-bold"> Welcome, {user.name} </div></Link>
                         <div onClick={onLogout} className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                            <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                            <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
                             <span className="relative block font-bold px-8 py-3 rounded bg-white border-2 border-current">
                                 Logout
@@ -46,7 +46,7 @@ const Navbar = () => {
                     :
                     (<Link to="/login">
                         <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                            <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                            <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
                             <span className="relative block font-bold px-8 py-3 rounded bg-white border-2 border-current">
                                 Sign up
