@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import SalonPicSignup1 from "../images/signup/salonpicsignuppage1.jpeg";
 import SalonPicSignup2 from "../images/signup/salonpicsignuppage2.jpeg";
-import Line from "./Line";
+import Line from "./Line.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register, reset } from "../redux/auth/authSlice";
 import { useEffect } from "react";
-import Spinner from "./Spinner";
+import Spinner from "./Spinner.jsx";
 
 const Signup = () => {
 

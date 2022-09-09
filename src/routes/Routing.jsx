@@ -1,17 +1,17 @@
 
 
 import React from "react";
-import Navbar from "../components/Navbar/index";
+import Navbar from "../components/Navbar/index.jsx";
 import { Route, Routes } from "react-router-dom";
-import Line from "../components/Line";
-import LandingPage from "../components/Landing";
-import LoginPage from "../components/Auth/Login/index";
-import SignupPage from "../components/Auth/Signup/index";
-import DashboardPage from "../components/Dashboard";
-import SalonDetails from "../components/Salon";
-import AppointmentPage from "../components/Appointment";
-import AppointmentConfirmation from "../components/Confirmation";
-import Profile from "../components/Profile";
+import Line from "../components/Line.jsx";
+import LandingPage from "../components/Landing/index.jsx";
+import LoginPage from "../components/Auth/Login/index.jsx";
+import SignupPage from "../components/Auth/Signup/index.jsx";
+import DashboardPage from "../components/Dashboard/index.jsx";
+import SalonDetails from "../components/Salon/index.jsx";
+import AppointmentPage from "../components/Appointment/index.jsx";
+import AppointmentConfirmation from "../components/Confirmation/index.jsx";
+import Profile from "../components/Profile/index.jsx";
 
 const Routing = () => {
     return (

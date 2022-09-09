@@ -1,5 +1,5 @@
 import React from "react";
-import SalonCard from "./SalonCard";
+import SalonCard from "./SalonCard.jsx";
 
 const SalonList = ({ data }) => {
 

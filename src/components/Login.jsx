@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import SalonPic1 from "../images/login/salonpicloginpage1.jpeg";
 import SalonPic2 from "../images/login/salonpicloginpage2.jpeg"
-import Line from "./Line";
+import Line from "./Line.jsx";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login, reset } from "../redux/auth/authSlice";
-import Spinner from "./Spinner";
+import Spinner from "./Spinner.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 

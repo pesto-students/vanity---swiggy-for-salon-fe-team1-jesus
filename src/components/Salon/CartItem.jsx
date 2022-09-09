@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import Delete from "../../images/delete.svg"
 import { removeItem } from '../../redux/cart/cartSlice'
+import { FaRegTrashAlt } from "react-icons"
 
 const CartItem = ({ item }) => {
 
@@ -15,7 +15,7 @@ const CartItem = ({ item }) => {
         <div className='bg-cream w-full mr-6 my-2 p-4 flex flex-row'>
             <div className='text-left'> {item.name} </div>
             <div className='ml-auto mr-4'> INR {item.price} </div>
-            <img className='cursor-pointer' onClick={handleDelete} src={Delete} alt="delete item" />
+            <FaRegTrashAlt onClick={handleDelete} />
         </div>
     )
 }

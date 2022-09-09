@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SalonCard2 from "../Salon/SalonCard2";
-import AppointmentCalender from "./Calendar";
-import AppointmentForm from "./Form";
-import Button from "../Button"
+import SalonCard2 from "../Salon/SalonCard2.jsx";
+import AppointmentCalender from "./Calendar.jsx";
+import AppointmentForm from "./Form.jsx";
+import Button from "../Button.jsx"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { sendBooking } from "../../redux/booking/bookingSlice";
