@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeItem } from '../../redux/cart/cartSlice'
-import { FaRegTrashAlt } from "react-icons"
+import { FaRegTrashAlt } from "react-icons/fa"
 
 const CartItem = ({ item }) => {
 

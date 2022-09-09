@@ -1,6 +1,6 @@
 import React from 'react'
 import SalonCard2 from "../Salon/SalonCard2.jsx";
-import { BsCalendar2CheckFill } from "react-icons"
+import { BsCalendar2CheckFill } from "react-icons/bs"
 function AppointmentConfirmation() {
     return (
         <div className="flex min-h-screen flex-col font-lora space-y-8 items-center pt-16">
