@@ -14,21 +14,25 @@ module.exports = withMT({
         'minttop': "url('/public/bg/minttop.svg')",
         'yellowtop': "url('/public/bg/yellowtop.svg')",
         'bluebottom': "url('/public/bg/bluebottom.svg')",
-        'pinkblob': "url('/public/bg/pinkblob.svg')"
+        'pinkblob': "url('/public/bg/pinkblob.svg')",
+        'lines': "url('/public/bg/bglines.svg')"
       },
       textColor: {
         'yellow': "#fcf6bd",
         'mint': "#d0f4de",
         'blue': "#a9def9",
-        'lavender': "#e4c1f9",
+        'lavender': "#E8BAE3",
         'pink': "#ff99c8"
       },
       backgroundColor: {
         'yellow': "#fcf6bd",
         'mint': "#d0f4de",
         'blue': "#a9def9",
-        'lavender': "#e4c1f9",
-        'pink': "#ff99c8"
+        'lavender': "#E8BAE3",
+        'pink': "#FAC9DE",
+        'cream': "#ffeaea",
+        'lightPink': "#ffdede",
+        'beige': "#FFCCB6"
       }
     },
   },

@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import SalonPicSignup1 from "../images/signup/salonpicsignuppage1.jpeg";
 import SalonPicSignup2 from "../images/signup/salonpicsignuppage2.jpeg";
 import Line from "./Line";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import useAxiosRequest from "../utils/axiosInstance";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { register, reset } from "../redux/auth/authSlice";
+import { useEffect } from "react";
+import Spinner from "./Spinner";
 
 const Signup = () => {
 
@@ -18,89 +22,56 @@ const Signup = () => {
         city: ""
     })
 
+    const { email, password, name, phone, gender, city } = obj
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+    useEffect(() => {
+        if (isError) {
+            toast.error(message)
+        }
+        if (isSuccess || user) {
+            navigate("/dashboard");
+        }
+
+        dispatch(reset())
+    }, [user, isError, isSuccess, message, navigate, dispatch])
+
     const handleChange = e => {
-        const { name, value } = e.target;
         setObj(prevState => ({
             ...prevState,
-            [name]: value
+            [e.target.id]: e.target.value
         }));
     };
 
-    const axiosRequest = useAxiosRequest()
-
-    const emailValidation = () => {
-        const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-        if (!obj.email || regex.test(obj.email) === false) {
-            console.log("false")
-            return false;
-        }
-        return true;
-    }
-
     const handleSignup = (e) => {
         e.preventDefault()
-        const ans = emailValidation()
 
-        if (obj.name.length < 3) {
-            toast("Please enter your full name.", {
-                autoClose: 4000,
-                position: toast.POSITION.TOP_CENTER,
-                transition: Zoom
-            })
-        }
-        else if (obj.password.length < 6) {
-            toast("Password needs to be at least 6 characters.", {
-                autoClose: 4000,
-                position: toast.POSITION.TOP_CENTER,
-                transition: Zoom
-            })
-        }
 
-        else if (!ans) {
-            toast("Email is invalid.", {
-                autoClose: 4000,
-                position: toast.POSITION.TOP_CENTER,
-                transition: Zoom
-            })
+        let payload = {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "city": city,
+            "gender": gender,
+            "password": password,
+            "rating": 0
         }
-
-        else {
-            let payload = {
-                "name": obj.name,
-                "email": obj.email,
-                "phone": obj.phone,
-                "city": obj.city,
-                "gender": obj.gender,
-                "budget": obj.budget,
-                "password": obj.password,
-                "rating": 0
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
             }
-
-            axiosRequest.post("/users/signup", payload)
-                .then((res) => {
-                    if (res === 200) {
-                        toast("Successfully registered!", {
-                            autoClose: 4000,
-                            position: toast.POSITION.TOP_CENTER,
-                            transition: Zoom
-                        })
-                    }
-                    else {
-                        toast("Sorry, there was an error with your request. Please try again.", {
-                            autoClose: 4000,
-                            position: toast.POSITION.TOP_CENTER,
-                            transition: Zoom
-                        })
-                    }
-                })
-                .catch((err) => {
-                    toast(`Sorry, there was an error with your request. Please try again. Error: ${err}`, {
-                        autoClose: 4000,
-                        position: toast.POSITION.TOP_CENTER,
-                        transition: Zoom
-                    })
-                })
         }
+        dispatch(register(payload, config))
+
+    }
+
+    if (isLoading) {
+        return (
+            <Spinner />
+        )
     }
 
     return (
@@ -192,7 +163,7 @@ const Signup = () => {
                     <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="gender">
                         <select
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
-                            id="city"
+                            id="gender"
                             type="select"
                             value={obj.gender}
                             onChange={(e) => handleChange(e)}
