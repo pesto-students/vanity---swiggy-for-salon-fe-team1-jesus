@@ -51,22 +51,22 @@ const Login = () => {
     }
 
     return (
-        <div className="font-lora flex flex-row px-16 space-x-6 py-16 bg-lavenderbottom">
+        <div className="font-lora flex flex-row px-16 space-x-6 py-16 bg-lightPink">
             <div className="w-1/2 flex flex-col space-y-2">
                 <ToastContainer />
                 <img src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/login/salonpicloginpage1.jpeg" alt="salon pic login page" />
                 <img src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/login/salonpicloginpage2.jpeg" alt="salon pic 2 login page" />
             </div>
             <div className="w-1/2 flex flex-col text-xl p-10 space-y-6 items-center">
-                <div className="text-5xl mb-6 font-aboreto">Vanity</div>
+                <div className="text-5xl mb-6 font-aboreto font-bold">Vanity</div>
                 <div className="font-bold ml-0 mr-auto">Get more on your salon visits.</div>
                 <div className="ml-0 mr-auto">Join us to get 10% off on your first appointment! </div>
                 <div className="w-full h-2"></div>
                 <Link to="/signup">
                     <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                        <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                        <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
-                        <span className="relative block px-20 py-3 rounded bg-black text-white border-2 border-current">
+                        <span className="relative block px-20 py-3 rounded bg-white text-black border-2 border-current">
                             Join Now
                         </span>
                     </div>
@@ -84,7 +84,7 @@ const Login = () => {
                         placeholder="Email"
                     />
 
-                    <span className="absolute text-md font-medium text-gray-400 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm">
+                    <span className="absolute text-sm font-medium text-gray-400 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm">
                         Email
                     </span>
                 </label>
@@ -98,13 +98,13 @@ const Login = () => {
                         placeholder="Password"
                     />
 
-                    <span className="absolute text-md font-medium text-gray-400 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm">
+                    <span className="absolute text-sm font-medium text-gray-400 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm">
                         Password
                     </span>
                 </label>
                 <div className="w-full h-2"></div>
                 <div onClick={(e) => handleSubmit(e)} className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                    <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                    <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
                     <span className="relative block px-20 py-3 rounded bg-white border-2 border-current">
                         Sign In

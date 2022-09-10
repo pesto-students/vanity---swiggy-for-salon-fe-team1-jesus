@@ -6,6 +6,7 @@ import Button from "../Button.jsx"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { sendBooking } from "../../redux/booking/bookingSlice";
+import SalonCardAppointment from "./SalonCardAppointment.jsx";
 
 const AppointmentPage = () => {
 
@@ -64,7 +65,7 @@ const AppointmentPage = () => {
 
     return (
         <div className="flex flex-col font-lora space-y-8 items-center py-16">
-            <SalonCard2 />
+            <SalonCardAppointment />
             <div className="font-aboreto text-3xl font-bold pt-10">Book Appointment</div>
             <div className="flex flex-row space-x-8 px-[20%] py-14 w-full divide-black divide-x-2">
                 <AppointmentForm appUser={appUser} handleChange={handleChange} />

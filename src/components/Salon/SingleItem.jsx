@@ -1,17 +1,26 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from "../../redux/cart/cartSlice"
 
-const SingleItem = ({ item }) => {
+const SingleItem = ({ item1 }) => {
 
     const dispatch = useDispatch()
-    const { subservice, price, serviceId, salonId } = item;
+    const { subservice, price, serviceId, salonId } = item1;
+    const { item } = useSelector((state) => state.salon)
 
     const handleAddToCart = () => {
         const item1 = {
             id: serviceId,
             name: subservice,
             price: price,
+            salonInCart: {
+                "name": item.name,
+                "rating": item.rating,
+                "address": item.address,
+                "avgCost": item.avgCost,
+                "bestFor": item.bestFor,
+                "salonId": salonId
+            },
             salonId: salonId
         }
         dispatch(addToCart(item1))
@@ -19,9 +28,14 @@ const SingleItem = ({ item }) => {
 
     return (
         <div className="flex flex-row align-middle w-full border mb-2 my-4 py-2 border-black">
-            <p className="w-1/3  p-4 dark:text-gray-400"> {item.subservice} </p>
-            <p className="w-1/3 ml-auto  p-4 mr-auto text-center">INR {item.price} </p>
-            <button onClick={handleAddToCart} className="w-1/3 text-right items-center"> <span className="bg-lavender hover:bg-pink hover:underline transition-all delay-200 p-4 mr-4">Add to Cart</span> </button>
+            <p className="w-1/3  p-4 dark:text-gray-400"> {item1.subservice} </p>
+            <p className="w-1/3 ml-auto  p-4 mr-auto text-center">INR {item1.price} </p>
+            <div onClick={handleAddToCart} className="cursor-pointer mr-4 relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
+                <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                <span className="relative text-lg block px-8 py-3 rounded bg-white border-2 border-current">
+                    Add to Cart
+                </span>
+            </div>
         </div>
     )
 }

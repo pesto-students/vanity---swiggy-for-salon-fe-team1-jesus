@@ -73,10 +73,10 @@ const Signup = () => {
     }
 
     return (
-        <div className="px-16 font-lora py-24 flex flex-row text-sm bg-yellowtop">
+        <div className="px-16 font-lora py-24 flex flex-row text-sm bg-lightPink">
             <ToastContainer />
             <div className="w-1/2 flex flex-col space-y-6 items-center">
-                <div className="text-5xl font-aboreto mb-4">Vanity</div>
+                <div className="text-5xl font-aboreto font-bold mb-4">Vanity</div>
                 <div className="font-bold text-xl ml-0 mr-auto">Sign up today to get 10% off your first appointment!</div>
                 <div className="w-full h-2"></div>
                 <Line />
@@ -201,7 +201,7 @@ const Signup = () => {
                 </div>
                 <div className="w-full h-2"></div>
                 <div onClick={(e) => handleSignup(e)} className=" text-lg cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                    <span className="absolute inset-0 rounded transition-transhtmlForm translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                    <span className="absolute inset-0 rounded transition-transhtmlForm translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
                     <span className="relative block px-20 py-3 font-bold rounded bg-white border-2 border-current">
                         Sign Up

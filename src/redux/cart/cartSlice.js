@@ -6,7 +6,8 @@ const cartSlice = createSlice({
       cart: [],
       currSalonId: "",
       serviceIds: [],
-      totalCost: 0
+      totalCost: 0,
+      currSalon: {}
     },
     reducers: {
       addToCart: (state, action) => {
@@ -14,7 +15,8 @@ const cartSlice = createSlice({
           state.cart.push({ ...action.payload, quantity: 1 });
           state.serviceIds.push(action.payload.id);
           state.totalCost = state.totalCost + action.payload.price
-          state.currSalonId = action.payload.salonId
+          state.currSalon = action.payload.salonInCart
+          state.currSalonId = action.payload.salonInCart.salonId
         }
         else {
           if(action.payload.salonId === state.currSalonId) {

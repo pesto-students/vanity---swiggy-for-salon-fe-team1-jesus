@@ -1,9 +1,8 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-const SalonCard2 = () => {
-
-    const { item } = useSelector((state) => state.salon)
+const SalonCardAppointment = () => {
+    const { currSalon } = useSelector((state) => state.cart)
 
     return (
         <div className="w-1/2 px-8 font-lora">
@@ -15,13 +14,13 @@ const SalonCard2 = () => {
                     </div>
                     <div className="flex w-full flex-col p-4 space-y-10">
                         <div className="flex flex-row">
-                            <div className="text-2xl font-aboreto w-4/5 font-bold"> {item.name} </div>
-                            <div className="mr-0 ml-auto text-xl"> Rating: {item.rating}/10 </div>
+                            <div className="text-2xl font-aboreto w-4/5 font-bold"> {currSalon.name} </div>
+                            <div className="mr-0 ml-auto text-xl"> Rating: {currSalon.rating}/10 </div>
                         </div>
-                        <div className="text-xl"> {item.address} </div>
+                        <div className="text-xl"> {currSalon.address} </div>
                         <div className="flex flex-row">
-                            <div className="text-xl"> Average Cost: {item.avgCost}</div>
-                            <div className="mr-0 ml-auto text-xl"> {item.bestFor} </div>
+                            <div className="text-xl"> Average Cost: {currSalon.avgCost}</div>
+                            <div className="mr-0 ml-auto text-xl"> {currSalon.bestFor} </div>
                         </div>
                     </div>
                 </span>
@@ -30,4 +29,4 @@ const SalonCard2 = () => {
     )
 }
 
-export default SalonCard2;
+export default SalonCardAppointment
