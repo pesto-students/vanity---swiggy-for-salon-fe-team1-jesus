@@ -9,7 +9,8 @@ const initialState = {
     isError: false,
     isSuccess: false,
     isLoading: false,
-    message: ""
+    message: "",
+    name: ""
 }
 
 export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
@@ -69,6 +70,7 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.isSuccess = true
             state.user = action.payload;
+            state.name = action.payload.name
         })
         .addCase(login.rejected, (state, action) => {
             state.isLoading = false
