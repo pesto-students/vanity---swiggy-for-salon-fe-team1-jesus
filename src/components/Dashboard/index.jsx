@@ -7,11 +7,13 @@ import { setSalons } from "../../redux/salons/salonSlice";
 import City from "./City.jsx";
 import Sort from "./Sort.jsx";
 import Search from "./Search.jsx";
+import Pagination from "./Pagination.jsx";
 
 const DashboardPage = () => {
 
     const dispatch = useDispatch();
     const [city, setCity] = useState("New Delhi")
+    const [page, setPage] = useState(1)
     useEffect(() => {
         const getSalons = async (city) => {
             await dispatch(setSalons(city))
@@ -28,10 +30,11 @@ const DashboardPage = () => {
                 <Sort />
             </div>
             <div className="flex flex-row px-16 py-24">
-                <Filters />
+                <Filters city={city} page={page} />
                 <SalonList data={salonList.data} />
                 <Offers />
             </div>
+            <Pagination />
         </div>
     )
 }
