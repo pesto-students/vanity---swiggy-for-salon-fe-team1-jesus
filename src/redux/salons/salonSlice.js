@@ -50,6 +50,39 @@ export const setSearchSalon = createAsyncThunk('/salon/search/:id', async (name,
     return searchResults;
 })
 
+export const applyFilters = createAsyncThunk('/sort', async (filters, thunkAPI) => {
+    try {
+        var filteredResults = salonService.sendFilters(filters)
+    }
+    catch(err) {
+        const message = (err.response && err.response.data && err.response.data.message) || err.message || err.toString()
+        return thunkAPI.rejectWithValue(message);
+    }
+    return filteredResults;
+})
+
+export const applySort = createAsyncThunk('/salon', async (sort, thunkAPI) => {
+    try {
+        var sortedResults = salonService.sendSort(sort)
+    }
+    catch(err) {
+        const message = (err.response && err.response.data && err.response.data.message) || err.message || err.toString()
+        return thunkAPI.rejectWithValue(message);
+    }
+    return sortedResults;
+})
+
+export const applyPagination = createAsyncThunk('/pagination', async (page, thunkAPI) => {
+    try {
+        var pagedResults = salonService.sendPage(page)
+    }
+    catch(err) {
+        const message = (err.response && err.response.data && err.response.data.message) || err.message || err.toString()
+        return thunkAPI.rejectWithValue(message);
+    }
+    return pagedResults
+})
+
 const debounced = debounce((name, dispatch) => {
     dispatch(setSearchSalon(name), 4000)
 });
@@ -73,16 +106,6 @@ const salonSlice = createSlice({
         },
         setItem: (state, action) => {
             state.item = action.payload
-        },
-        sortSalons: (state, action) => {
-            console.log(action, "action")
-            if(action.payload === "low") {
-                state.salonList.data = state.salonList.data.sort((a, b) => b.avgCost - a.avgCost)
-                console.log(state.salonList, action)
-            }
-            else if(action.payload === "high") {
-                state.salonList.data = state.salonList.data.sort((a, b) => a.avgCost - b.avgCost)
-            }
         }
     },
     extraReducers: (builder) => {
@@ -126,8 +149,47 @@ const salonSlice = createSlice({
             state.isError = true
             state.message = action.payload
         })
+        .addCase(applyFilters.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(applyFilters.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.salonList = action.payload
+        })
+        .addCase(applyFilters.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+        })
+        .addCase(applySort.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(applySort.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.salonList = action.payload
+        })
+        .addCase(applySort.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+        })
+        .addCase(applyPagination.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(applyPagination.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.salonList = action.payload
+        })
+        .addCase(applyPagination.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+        })
     }
 })
 
 export const salonReducer = salonSlice.reducer;
-export const {getCurrentSalon, getSalons, setItem, sortSalons,} = salonSlice.actions;
+export const {getCurrentSalon, getSalons, setItem} = salonSlice.actions;

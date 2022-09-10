@@ -1,6 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { applyFilters } from "../../redux/salons/salonSlice";
 
-const Filters = () => {
+const allType = ["Haircut", "Nails", "Massage", "Spa", "Beard", "Waxing"];
+const allGenders = ["Male", "Female", "Unisex"];
+const allRatings = [8, 6, 0]
+
+const Filters = ({ city, page }) => {
+
+    const [type, setType] = useState([]);
+    const [gender, setGender] = useState([]);
+    const [rating, setRating] = useState([]);
+    const dispatch = useDispatch()
+
+    const handleTypeSelect = (item) => {
+        const isSelected = type.includes(item);
+        const newSelection = isSelected ? type.filter(currItem => currItem !== item) : [...type, item]
+        setType(newSelection)
+    }
+
+    const handleGenderSelect = (item) => {
+        const isSelected = gender.includes(item);
+        const newSelection = isSelected ? gender.filter(currItem => currItem !== item) : [...gender, item]
+        setGender(newSelection)
+    }
+
+    const handleRatingSelect = (item) => {
+        const isSelected = rating.includes(item)
+        const newSelection = isSelected ? rating.filter(currItem => currItem !== item) : [...rating, item]
+        setRating(newSelection)
+    }
+
+    const handleClear = () => {
+        setGender([]);
+        setType([]);
+        setRating([])
+    }
+
+    const handleApplyFilters = () => {
+        const types = type.toString()
+        const genders = gender[0];
+        const ratings = rating.toString();
+        const filtered = `bestFor=${genders}&rating=${ratings}&page=${page}&size=10&services=${types}&city=${city}`
+        dispatch(applyFilters(filtered));
+    }
+
     return (
         <div className=" w-1/6">
             <form
@@ -17,116 +61,36 @@ const Filters = () => {
                             <fieldset>
                                 <legend className="text-xl font-medium">Type</legend>
                                 <ul className="mt-6 flex flex-col space-y-4">
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">All</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Hair Salon</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Nail Salon</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Spa & Massages</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Makeup Deals</span>
-                                        </label>
-                                    </li>
+                                    {allType.map((item, i) => {
+                                        const isSelected = type.includes(item)
+                                        return (
+                                            <li key={i}>
+                                                <label className="flex items-center text-sm">
+                                                    <input onChange={() => handleTypeSelect(item)} type="checkbox" checked={isSelected} className="w-6 h-6 border border-gray-200 rounded-md" />
+                                                    <span className="ml-3 font-medium"> {item} </span>
+                                                </label>
+                                            </li>
+                                        )
+                                    })}
                                 </ul>
                             </fieldset>
                         </div>
-                        <div className="py-8">
-                            <fieldset>
-                                <legend className="text-xl font-medium">Price</legend>
-
-                                <ul className="mt-6 flex flex-col space-y-4">
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">All</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">₹₹₹₹</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">₹₹₹</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">₹₹</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">₹</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </fieldset>
-                        </div>
-
                         <div className="py-8">
                             <fieldset>
                                 <legend className="text-xl font-medium">Gender</legend>
 
                                 <ul className="mt-6 flex flex-col space-y-4">
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">All</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Unisex</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Women</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">Men</span>
-                                        </label>
-                                    </li>
+                                    {allGenders.map((item, i) => {
+                                        const isSelected = gender.includes(item)
+                                        return (
+                                            <li key={i}>
+                                                <label className="flex items-center text-sm">
+                                                    <input onChange={() => handleGenderSelect(item)} type="checkbox" checked={isSelected} className="w-6 h-6 border border-gray-200 rounded-md" />
+                                                    <span className="ml-3 font-medium"> {item} </span>
+                                                </label>
+                                            </li>
+                                        )
+                                    })}
                                 </ul>
                             </fieldset>
                         </div>
@@ -136,36 +100,27 @@ const Filters = () => {
                                 <legend className="text-xl font-medium">Ratings</legend>
 
                                 <ul className="mt-6 flex flex-col space-y-4">
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">All</span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium"> 8 and above </span>
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label className="flex items-center text-sm">
-                                            <input type="checkbox" className="w-6 h-6 border border-gray-200 rounded-md" />
-                                            <span className="ml-3 font-medium">6 and above</span>
-                                        </label>
-                                    </li>
+                                    {allRatings.map((item, i) => {
+                                        const isSelected = rating.includes(item)
+                                        return (
+                                            <li key={i}>
+                                                <label className="flex items-center text-sm">
+                                                    <input onChange={() => handleRatingSelect(item)} type="checkbox" checked={isSelected} className="w-6 h-6 border border-gray-200 rounded-md" />
+                                                    <span className="ml-3 font-medium"> {item} </span>
+                                                </label>
+                                            </li>
+                                        )
+                                    })}
                                 </ul>
                             </fieldset>
                         </div>
                     </div>
                 </main>
                 <footer className="flex flex-col space-y-4 items-center justify-between p-6">
-                    <button className="text-sm font-medium text-gray-600 underline" type="button">Clear all</button>
+                    <button onClick={handleClear} className="text-sm font-medium text-gray-600 underline" type="button">Clear all</button>
 
-                    <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                        <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-pink group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                    <div onClick={handleApplyFilters} className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
+                        <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
                         <span className="relative block font-bold px-8 py-3 rounded bg-white border-2 border-current">
                             Show Results
