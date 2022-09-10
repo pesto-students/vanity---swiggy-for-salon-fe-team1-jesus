@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SalonCard2 from "../Salon/SalonCard2.jsx";
 import AppointmentCalender from "./Calendar.jsx";
 import AppointmentForm from "./Form.jsx";
 import Button from "../Button.jsx"
@@ -7,20 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { sendBooking } from "../../redux/booking/bookingSlice";
 import SalonCardAppointment from "./SalonCardAppointment.jsx";
+import CartAppointment from "./CartAppointment.jsx";
 
 const AppointmentPage = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const { cart, totalCost, serviceIds, currSalonId } = useSelector((state) => state.cart)
-    console.log(cart, "cart")
+    const { user } = useSelector((state) => state.auth)
     const [newDate, setNewDate] = useState(new Date());
     const [newTime, setNewTime] = useState("");
     const [appUser, setAppUser] = useState({
-        "email": "",
-        "name": "",
-        "phone": "",
-        "req": ""
+        "email": user.email ? user.email : "",
+        "name": user.name ? user.name : "",
+        "phone": user.phone ? user.phone : "",
     })
     const handleChange = e => {
         setAppUser(prevState => ({
@@ -64,14 +63,17 @@ const AppointmentPage = () => {
     }
 
     return (
-        <div className="flex flex-col font-lora space-y-8 items-center py-16">
-            <SalonCardAppointment />
+        <div className="flex flex-col bg-lightPink font-lora space-y-8 items-center py-16">
+            <div className="flex flex-row space-x-20 justify-center">
+                <SalonCardAppointment />
+                <CartAppointment cart={cart} />
+            </div>
             <div className="font-aboreto text-3xl font-bold pt-10">Book Appointment</div>
             <div className="flex flex-row space-x-8 px-[20%] py-14 w-full divide-black divide-x-2">
                 <AppointmentForm appUser={appUser} handleChange={handleChange} />
                 <AppointmentCalender newTime={newTime} setNewTime={setNewTime} newDate={newDate} setNewDate={setNewDate} />
             </div>
-            <Button click={handleAppointment} clr="lavender" str="Book Appointment"></Button>
+            <Button click={handleAppointment} clr="black" str="Book Appointment"></Button>
         </div>
     )
 }

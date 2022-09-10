@@ -24,7 +24,7 @@ const SalonCard = ({ item }) => {
                     <div className="flex w-full flex-col p-4 space-y-10">
                         <div className="flex flex-row">
                             <div className="text-2xl font-aboreto font-bold"> {item.name} </div>
-                            <div className="mr-0 ml-auto text-xl"> Rating: {item.rating} /5 </div>
+                            <div className="mr-0 ml-auto text-xl"> Rating: {item.rating}/10 </div>
                         </div>
                         <div className="text-xl"> {item.city}, {item.pincode} </div>
                         <div className="flex flex-row">

@@ -3,7 +3,7 @@ import Line from "./Line.jsx";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login, reset } from "../redux/auth/authSlice";
+import { login } from "../redux/auth/authSlice";
 import Spinner from "./Spinner.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,7 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+    const { cart, currSalonId } = useSelector((state) => state.cart)
 
     useEffect(() => {
         if (isError) {
@@ -27,9 +28,11 @@ const Login = () => {
         if (isSuccess || user) {
             navigate("/dashboard");
         }
+        if (isSuccess && cart && currSalonId) {
+            navigate(`/salon/${currSalonId}`)
+        }
 
-        dispatch(reset())
-    }, [user, isError, isSuccess, message, navigate, dispatch])
+    }, [user, isError, isSuccess, message, navigate, dispatch, cart, currSalonId])
 
     const handleChange = (e) => {
         setUserDetails(prevState => ({
