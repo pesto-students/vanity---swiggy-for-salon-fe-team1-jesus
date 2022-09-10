@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react'
 import { ErrorBoundary } from "react-error-boundary"
+import Dashboard from '../../components/Dashboard';
 import ErrorFallback from "../../pages/Error/index.jsx";
-import Landing from "../../components/Landing/index.jsx";
 
-const LandingPage = () => {
+const DashboardPage = () => {
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Landing />
+            <Dashboard />
         </ErrorBoundary>
     )
 }
-export default LandingPage;
+
+export default DashboardPage;

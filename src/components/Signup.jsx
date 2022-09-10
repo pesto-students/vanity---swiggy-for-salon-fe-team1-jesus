@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { register, reset } from "../redux/auth/authSlice";
+import { register } from "../redux/auth/authSlice";
 import { useEffect } from "react";
 import Spinner from "./Spinner.jsx";
 
@@ -33,7 +33,6 @@ const Signup = () => {
             navigate("/dashboard");
         }
 
-        dispatch(reset())
     }, [user, isError, isSuccess, message, navigate, dispatch])
 
     const handleChange = e => {

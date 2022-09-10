@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Filters from "./Filters.jsx";
-import Offers from "./Offers.jsx";
-import SalonList from "./SalonList.jsx";
+import React, { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSalons } from "../../redux/salons/salonSlice";
 import City from "./City.jsx";
 import Sort from "./Sort.jsx";
 import Search from "./Search.jsx";
-import Pagination from "./Pagination.jsx";
+import Spinner from "../Spinner.jsx";
 
-const DashboardPage = () => {
+const Dashboard = () => {
 
+    const Filters = React.lazy(() => import('./Filters.jsx'))
+    const SalonList = React.lazy(() => import('./SalonList.jsx'))
+    const Offers = React.lazy(() => import('./Offers.jsx'))
+    const Pagination = React.lazy(() => import('./Pagination.jsx'))
     const dispatch = useDispatch();
     const [city, setCity] = useState("New Delhi")
-    const [page, setPage] = useState(1)
+    const { isLoading } = useSelector((state) => state.salon);
+    const [page] = useState(1)
     useEffect(() => {
         const getSalons = async (city) => {
             await dispatch(setSalons(city))
@@ -29,14 +31,16 @@ const DashboardPage = () => {
                 <Search />
                 <Sort />
             </div>
-            <div className="flex flex-row px-16 py-24">
-                <Filters city={city} page={page} />
-                <SalonList data={salonList.data} />
-                <Offers />
-            </div>
-            <Pagination />
+            <Suspense fallback={<Spinner />}>
+                <div className="flex flex-row px-16 py-24">
+                    <Filters city={city} page={page} />
+                    {isLoading ? (<Spinner />) : (<SalonList data={salonList.data} />)}
+                    <Offers />
+                </div>
+                <Pagination />
+            </Suspense>
         </div>
     )
 }
 
-export default DashboardPage;
+export default Dashboard;

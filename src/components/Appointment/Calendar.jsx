@@ -12,7 +12,7 @@ const AppointmentCalender = ({ newDate, setNewDate, newTime, setNewTime }) => {
     return (
         <div className="w-1/2 font-lora">
             <div className="text-right text-3xl mb-4 pb-6"> {handleDate(newDate)} </div>
-            <div className="border-2 border-black w-fit rounded float-right">
+            <div className="border-black w-fit rounded float-right">
                 <Calendar onChange={setNewDate} value={newDate} />
             </div>
             <div>

@@ -10,7 +10,8 @@ const initialState = {
     isSuccess: false,
     isLoading: false,
     message: "",
-    name: ""
+    name: "",
+    isAuth: false
 }
 
 export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
@@ -45,6 +46,8 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.isSuccess = false
             state.message = ""
+            state.name = ""
+            state.isAuth = false
         }
     },
     extraReducers: (builder) => {
@@ -56,12 +59,14 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.isSuccess = true
             state.user = action.meta.arg
+            state.isAuth = true
         })
         .addCase(register.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload
             state.user = null
+            state.isAuth = false
         })
         .addCase(login.pending, (state) => {
             state.isLoading = true
@@ -71,15 +76,18 @@ export const authSlice = createSlice({
             state.isSuccess = true
             state.user = action.payload;
             state.name = action.payload.name
+            state.isAuth = true
         })
         .addCase(login.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload
             state.user = null
+            state.isAuth = false
         })
         .addCase(logout.fulfilled, (state) => {
             state.user = null
+            state.isAuth = false
         })
     },
 

@@ -10,6 +10,10 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const { name, user } = useSelector((state) => state.auth)
 
+    const onProfile = () => {
+        navigate(`/profile/${user.userId}`)
+    }
+
     const onLogout = () => {
         dispatch(logout());
         dispatch(reset());
@@ -35,7 +39,7 @@ const Navbar = () => {
                 {user ?
 
                     (<>
-                        <Link to="/profile"><div className="text-xl pr-4 font-aboreto font-bold"> Welcome, {name} </div></Link>
+                        <div onClick={onProfile} className="text-xl pr-4 font-aboreto font-bold"> Welcome, {name} </div>
                         <div onClick={onLogout} className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
                             <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 

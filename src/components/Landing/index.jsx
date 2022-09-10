@@ -1,13 +1,23 @@
-import React from "react";
-import { ErrorBoundary } from "react-error-boundary"
-import ErrorFallback from "../../pages/Error/index.jsx";
-import Landing from "../../pages/Landing/index.jsx";
+import React, { Suspense } from "react";
+import Hero from "./Hero.jsx";
 
-const LandingPage = () => {
+const Landing = () => {
+
+    const Features = React.lazy(() => import('../../components/Landing/Features.jsx'))
+    const Testimonials = React.lazy(() => import('../../components/Landing/Testimonials.jsx'))
+    const CTA = React.lazy(() => import('../../components/Landing/CTA.jsx'))
+    const Footer = React.lazy(() => import('../../components/Landing/Footer.jsx'))
     return (
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Landing />
-        </ErrorBoundary>
+        <div className="font-lora">
+            <Hero />
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <Features />
+                <Testimonials />
+                <CTA />
+                <Footer />
+            </Suspense>
+        </div>
     )
 }
-export default LandingPage;
+
+export default Landing;
