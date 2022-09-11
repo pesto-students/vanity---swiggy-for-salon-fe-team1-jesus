@@ -2,7 +2,7 @@ import React from "react";
 
 const AppointmentForm = ({ handleChange, appUser }) => {
     return (
-        <div className="flex flex-col w-1/2 pr-10">
+        <div className="flex flex-col w-1/2 phone:w-full pr-10 phone:pr-0">
             <div className="text-3xl pb-6">Enter personal details:</div>
             <div className="flex flex-col space-y-10 py-6">
                 <label className="relative w-full block bg-white p-3 border-2 border-black rounded" htmlFor="name">

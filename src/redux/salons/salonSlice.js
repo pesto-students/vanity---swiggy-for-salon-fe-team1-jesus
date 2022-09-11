@@ -17,7 +17,6 @@ const initialState = {
 }
 
 export const setSalons = createAsyncThunk('/salons', async (city, thunkAPI) => {
-    console.log(city)
     try {
         var salons = await salonService.getSalons(city)
     }

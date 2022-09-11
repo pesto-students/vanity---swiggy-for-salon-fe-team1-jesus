@@ -2,7 +2,7 @@ import React from "react";
 
 const Offers = () => {
     return (
-        <div className="w-1/6">
+        <div className="w-1/6 phone:hidden">
             <div className="relative  mx-auto overflow-auto min-h-screen bg-white divide-y divide-black border-2 rounded-lg border-black">
                 <header className="p-6 text-center">
                     <p className="text-lg font-medium">Offers</p>

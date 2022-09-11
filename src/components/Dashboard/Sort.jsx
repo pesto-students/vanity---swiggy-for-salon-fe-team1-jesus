@@ -14,7 +14,7 @@ function Sort() {
     }
 
     return (
-        <div className='items-center mx-auto w-1/5 ml-4'>
+        <div className='items-center mx-auto w-1/5 ml-4 phone:w-full phone:mx-0'>
             <select value={sort} onChange={(e) => handleSort(e)} id="countries" className=" border-2 border-black w-full  text-gray-900 text-sm rounded outline-none p-[11px] ">
                 <option className='px-10'>Sort</option>
                 <option value="DESC">Price low to high</option>

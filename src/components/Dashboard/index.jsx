@@ -26,13 +26,13 @@ const Dashboard = () => {
 
     return (
         <div className="bg-cream pt-8">
-            <div className="flex flex-row px-[20%] mx-auto">
+            <div className="flex flex-row phone:flex-col phone:items-center phone:space-y-4 px-[20%] phone:px-6 phone:mx-0 mx-auto">
                 <City city={city} setCity={setCity} />
                 <Search />
                 <Sort />
             </div>
             <Suspense fallback={<Spinner />}>
-                <div className="flex flex-row px-16 py-24">
+                <div className="flex flex-row px-16 phone:py-16 phone:px-6 py-24">
                     <Filters city={city} page={page} />
                     {isLoading ? (<Spinner />) : (<SalonList data={salonList.data} />)}
                     <Offers />

@@ -4,7 +4,7 @@ import Line from "../Line.jsx"
 const TestimonialCard = ({ item }) => {
     return (
         <div>
-            <div className='flex w-1/2 flex-row mx-auto overflow-hidden pb-8'>
+            <div className='flex w-1/2 phone:w-full phone:px-6 flex-row mx-auto overflow-hidden pb-8'>
                 <div className='w-1/4'>
                     <img src={item.imageUrl} alt="profile pic" className='w-full rounded' />
                 </div>

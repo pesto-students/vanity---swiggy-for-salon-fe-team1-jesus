@@ -35,7 +35,7 @@ const SalonCart = () => {
     }
 
     return (
-        <div className="w-2/6 bg-lightPink border-black px-6 py-2 border-2 items-center text-center">
+        <div className="w-2/6 phone:w-full phone:my-6 bg-lightPink border-black px-6 py-2 border-2 items-center text-center">
             <div className="text-2xl font-bold pt-8 pb-4">Cart</div>
             <div className="text-xl bg-pink border-2 border-black rounded p-4 mb-8 font-bold">SALON: {currSalon?.name}</div>
             {cart?.cart.map((item, i) => {

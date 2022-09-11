@@ -46,7 +46,7 @@ const Filters = ({ city, page }) => {
     }
 
     return (
-        <div className=" w-1/6">
+        <div className=" w-1/6 phone:hidden">
             <form
                 className="relative bg-white  mx-auto overflow-auto divide-y divide-black border-2 rounded-lg border-black"
                 role="dialog"

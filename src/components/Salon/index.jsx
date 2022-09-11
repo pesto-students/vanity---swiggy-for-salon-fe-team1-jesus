@@ -22,7 +22,7 @@ const SalonDetails = ({ match, history }) => {
             <SalonCard2 />
             <h2 className="text-3xl px-6 font-semibold pt-4">Salon Menu</h2>
             <Suspense fallback={<SalonSpinner />}>
-                <div className="flex flex-row space-x-8 px-16 py-24 w-full">
+                <div className="flex flex-row phone:flex-col phone:space-x-0 phone:px-6 phone:py-6 space-x-8 px-16 py-24 w-full">
                     <SalonServices />
                     <SalonCart />
                 </div>

@@ -72,16 +72,16 @@ const Signup = () => {
     }
 
     return (
-        <div className="px-16 font-lora py-24 flex flex-row text-sm bg-lightPink">
+        <div className="px-16 phone:px-6 font-lora py-24 flex flex-row text-sm bg-lightPink">
             <ToastContainer />
-            <div className="w-1/2 flex flex-col space-y-6 items-center">
+            <div className="w-1/2 phone:w-full flex flex-col space-y-6 items-center">
                 <div className="text-5xl font-aboreto font-bold mb-4">Vanity</div>
-                <div className="font-bold text-xl ml-0 mr-auto">Sign up today to get 10% off your first appointment!</div>
+                <div className="font-bold text-xl ml-0 mr-auto phone:mx-auto phone:text-center">Sign up today to get 10% off your first appointment!</div>
                 <div className="w-full h-2"></div>
                 <Line />
                 <div className="w-full h-2"></div>
-                <div className="flex flex-row w-full space-x-6 px-6">
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="name">
+                <div className="flex flex-row phone:flex-col phone:space-x-0 phone:space-y-4 w-full space-x-6 px-6">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="name">
                         <input
                             className="w-full px-0 bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="name"
@@ -95,7 +95,7 @@ const Signup = () => {
                             Name
                         </span>
                     </label>
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="email">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="email">
                         <input
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="email"
@@ -112,7 +112,7 @@ const Signup = () => {
 
                 </div>
                 <div className="flex flex-row w-full space-x-6 px-6">
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="password">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="password">
                         <input
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="password"
@@ -126,7 +126,7 @@ const Signup = () => {
                             Password
                         </span>
                     </label>
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="phone">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="phone">
                         <input
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="phone"
@@ -143,7 +143,7 @@ const Signup = () => {
 
                 </div>
                 <div className="flex flex-row w-full space-x-6 px-6">
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="city">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="city">
                         <input
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="city"
@@ -157,7 +157,7 @@ const Signup = () => {
                             City
                         </span>
                     </label>
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="gender">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="gender">
                         <select
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="gender"
@@ -178,7 +178,7 @@ const Signup = () => {
                     </label>
                 </div>
                 <div className="flex flex-row w-full space-x-6 px-6">
-                    <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="budget">
+                    <label className="relative w-1/2 bg-white phone:w-full block p-3 border-2 border-black rounded" htmlFor="budget">
                         <select
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="budget"
@@ -209,7 +209,7 @@ const Signup = () => {
                 <div className="w-full h-2"></div>
                 <Line />
             </div>
-            <div className="flex flex-col w-1/2 space-y-6">
+            <div className="flex phone:hidden flex-col w-1/2 space-y-6">
                 <img alt="salon1" src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/signup/salonpicsignuppage1.jpeg" />
                 <img alt="salon2" src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/signup/salonpicsignuppage2.jpeg" />
             </div>

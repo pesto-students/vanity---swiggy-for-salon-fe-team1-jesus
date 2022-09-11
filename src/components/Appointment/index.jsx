@@ -64,12 +64,12 @@ const AppointmentPage = () => {
 
     return (
         <div className="flex flex-col bg-lightPink font-lora space-y-8 items-center py-16">
-            <div className="flex flex-row space-x-20 justify-center">
+            <div className="flex flex-row phone:flex-col phone:space-x-0 phone:px-6 space-x-20 justify-center">
                 <SalonCardAppointment />
                 <CartAppointment cart={cart} />
             </div>
             <div className="font-aboreto text-3xl font-bold pt-10">Book Appointment</div>
-            <div className="flex flex-row space-x-8 px-[20%] py-14 w-full divide-black divide-x-2">
+            <div className="flex flex-row phone:flex-col phone:space-x-0 phone:py-8 phone:px-6 phone:divide-x-0 space-x-8 px-[20%] py-14 w-full divide-black divide-x-2">
                 <AppointmentForm appUser={appUser} handleChange={handleChange} />
                 <AppointmentCalender newTime={newTime} setNewTime={setNewTime} newDate={newDate} setNewDate={setNewDate} />
             </div>
