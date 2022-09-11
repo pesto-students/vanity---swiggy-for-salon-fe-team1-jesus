@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -47,29 +48,35 @@ const Footer = () => {
                         <ul
                             className="flex flex-wrap text-lg justify-center gap-6 lg:justify-end md:gap-8 lg:gap-12"
                         >
-                            <li>
-                                <a className="text-black transition hover:underline" href="/">
-                                    Home
-                                </a>
-                            </li>
+                            <Link to="/">
+                                <li>
+                                    <a className="text-black transition hover:underline" href="/">
+                                        Home
+                                    </a>
+                                </li>
+                            </Link>
+                            <Link to="/about">
+                                <li>
+                                    <a className="text-black transition hover:underline" href="/">
+                                        About
+                                    </a>
+                                </li>
+                            </Link>
 
-                            <li>
-                                <a className="text-black transition hover:underline" href="/">
-                                    About
-                                </a>
-                            </li>
-
-                            <li>
-                                <a className="text-black transition hover:underline" href="/">
-                                    Book
-                                </a>
-                            </li>
-
-                            <li>
-                                <a className="text-black transition hover:underline" href="/">
-                                    FAQs
-                                </a>
-                            </li>
+                            <Link to="/dashboard">
+                                <li>
+                                    <a className="text-black transition hover:underline" href="/">
+                                        Book
+                                    </a>
+                                </li>
+                            </Link>
+                            <Link to="/faqs">
+                                <li>
+                                    <a className="text-black transition hover:underline" href="/">
+                                        FAQs
+                                    </a>
+                                </li>
+                            </Link>
                         </ul>
                     </nav>
                 </div>
