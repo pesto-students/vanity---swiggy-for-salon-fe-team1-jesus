@@ -1,16 +1,15 @@
 import React from 'react'
 import Button from '../Button';
 import { useDispatch } from "react-redux"
-import { deleteBooking } from '../../redux/booking/bookingSlice';
+import { deleteBooking, getBookings } from '../../redux/booking/bookingSlice';
 
 function BookingItem({ item }) {
 
     const dispatch = useDispatch()
 
     const bookingDate = () => {
-        const newD = Date(item.bookingDate)
-        const finalD = newD.split(" ");
-        return `${finalD[0]} ${finalD[1]} ${finalD[2]} ${finalD[3]}`
+        const finalD = item.bookingDate.split("-");
+        return `${finalD[2]}-${finalD[1]}-${finalD[0]}`
     }
 
     const startTime = () => {
@@ -23,6 +22,7 @@ function BookingItem({ item }) {
 
     const handleDeleteBooking = () => {
         dispatch(deleteBooking(item.bookingId));
+        dispatch(getBookings(item.userId));
     }
 
     return (

@@ -18,6 +18,12 @@ function AppointmentConfirmation() {
         return `${finalD[0]} ${finalD[1]} ${finalD[2]} ${finalD[3]}`
     }
 
+    const payload = {
+        "paymentDate": latestBooking?.data.bookingDate,
+        "amount": latestBooking?.data.totalAmount,
+        "bookingId": latestBooking?.data.bookingId
+    }
+
     const startTime = () => {
         const startT = latestBooking?.data.startTime
         let t = startT.split(":");
@@ -41,7 +47,7 @@ function AppointmentConfirmation() {
                         <div className='text-xl mt-4 font-bold'> Your appointment has been confirmed at {salonName} </div>
                         <div className='text-xl mt-4 font-bold'> for {bookingDate()} at  {startTime()} </div>
                         <div className='mt-6 mx-auto w-1/5 flex flex-row space-x-4'>
-                            <Payment />
+                            <Payment payload={payload} />
                             <Button click={handlePayLater} clr="black" str="Pay at Salon"></Button>
                         </div>
                     </div>
