@@ -18,7 +18,12 @@ const getBookingsRequest = async (userId) => {
 }
 
 const sendDeleteBooking = async (bookingId) => {
-    const response = await axios.delete(`${API_GET_SALONS}?bookingId=${bookingId}`)
+    const accessToken = localStorage.getItem('accessToken')
+    const response = await axios.delete(`${API_GET_SALONS}?bookingId=${bookingId}`, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    })
     return response.data
 }
 

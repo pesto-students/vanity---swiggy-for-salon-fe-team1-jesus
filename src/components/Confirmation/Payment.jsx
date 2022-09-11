@@ -2,13 +2,13 @@ import React from "react";
 import Axios from 'axios';
 import Button from "../Button.jsx";
 
-const Payment = () => {
+const Payment = ({ payload }) => {
 
     const paymentHandler = async (e) => {
-        const API_URL = 'https://vanity-swiggy-for-salons-be.herokuapp.com/';
+        const API_URL = 'https://vanity-swiggy-for-salons-be.herokuapp.com/api/v1/payment/';
         e.preventDefault();
         const orderUrl = `${API_URL}order`;
-        const response = await Axios.get(orderUrl);
+        const response = await Axios.post(orderUrl, payload);
         console.log('resp', response);
         const { data } = response;
 
