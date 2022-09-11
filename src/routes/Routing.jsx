@@ -15,6 +15,7 @@ import SalonPage from "../pages/Salon/index.jsx";
 import PrivateRoutes from "./PrivateRoutes.jsx";
 import About from "../components/About/index.jsx";
 import FAQs from "../components/FAQs/index.jsx";
+import AllBookings from "../components/Profile/AllBookings.jsx"
 
 const Routing = () => {
     return (
@@ -32,6 +33,7 @@ const Routing = () => {
                 <Route element={<PrivateRoutes />}>
                     <Route path="/appointments" exact element={<AppointmentPage />} />
                     <Route path="/appointmentconfirmation" exact element={<AppointmentConfirmation />} />
+                    <Route path="/profile/allbookings" exact element={<AllBookings />} />
                     <Route path="/profile/:user" exact element={<Profile />} />
                 </Route>
             </Routes>
