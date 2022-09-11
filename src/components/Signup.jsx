@@ -86,6 +86,7 @@ const Signup = () => {
                             className="w-full px-0 bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="name"
                             type="text"
+                            required="true"
                             value={obj.name}
                             onChange={(e) => handleChange(e)}
                             placeholder="name"
@@ -101,6 +102,7 @@ const Signup = () => {
                             id="email"
                             type="email"
                             value={obj.email}
+                            required="true"
                             onChange={(e) => handleChange(e)}
                             placeholder="Email"
                         />
@@ -117,6 +119,7 @@ const Signup = () => {
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="password"
                             type="password"
+                            required="true"
                             value={obj.password}
                             onChange={(e) => handleChange(e)}
                             placeholder="Password"
@@ -130,7 +133,8 @@ const Signup = () => {
                         <input
                             className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                             id="phone"
-                            type="text"
+                            type="number"
+                            required="true"
                             value={obj.phone}
                             onChange={(e) => handleChange(e)}
                             placeholder="Phone Number"

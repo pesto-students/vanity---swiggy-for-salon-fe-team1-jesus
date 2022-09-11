@@ -83,6 +83,7 @@ const Login = () => {
                         id="email"
                         type="email"
                         value={email}
+                        required="true"
                         onChange={(e) => handleChange(e)}
                         placeholder="Email"
                     />
@@ -97,6 +98,7 @@ const Login = () => {
                         id="password"
                         type="password"
                         value={password}
+                        required="true"
                         onChange={(e) => handleChange(e)}
                         placeholder="Password"
                     />

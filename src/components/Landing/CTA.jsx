@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const CTA = () => {
 
     return (
-        <div className='bg-lavender py-16 flex flex-row w-full px-[10%] phone:flex-col'>
+        <div className='bg-lavender py-16 flex flex-row w-full px-[20%] phone:flex-col'>
             <div className='text-6xl ml-0 mr-auto font-aboreto phone:text-center phone:text-5xl font-bold leading-snug'> WHAT ARE YOU <br /> WAITING FOR? </div>
             <div className='mr-0 ml-auto phone:mx-auto my-auto'>
                 <Link to="/dashboard">
