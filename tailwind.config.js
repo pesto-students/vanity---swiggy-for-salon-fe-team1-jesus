@@ -10,7 +10,7 @@ module.exports = withMT({
         lora: ['Lora', 'serif']
       },
       screens: {
-        'phone': '300px'
+        'phone': {'min': '300px', 'max': '600px'}
       },
       backgroundImage: {
         'lavenderbottom': "url('/public/bg/lavenderbottom.svg')",

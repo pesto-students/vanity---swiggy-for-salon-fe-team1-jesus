@@ -21,6 +21,28 @@ export const sendBooking = createAsyncThunk('/bookings', async (details, thunkAP
     return res;
 })
 
+export const getBookings = createAsyncThunk('/getBookings', async (userId, thunkAPI) => {
+    try {
+        var result = await bookingService.getBookingsRequest(userId)
+    }
+    catch(err) {
+        const message = (err.response && err.response.data && err.response.data.message) || err.message || err.toString()
+        return thunkAPI.rejectWithValue(message);
+    }
+    return result;
+})
+
+export const deleteBooking = createAsyncThunk('/deletebooking', async (bookingId, thunkAPI) => {
+    try {
+        var del = await bookingService.sendDeleteBooking(bookingId)
+    }
+    catch(err) {
+        const message = (err.response && err.response.data && err.response.data.message) || err.message || err.toString()
+        return thunkAPI.rejectWithValue(message);
+    }
+    return del
+})
+
 const bookingSlice = createSlice({
     name: 'booking',
     initialState: initialState,
@@ -45,6 +67,32 @@ const bookingSlice = createSlice({
             state.latestBooking = action.payload
         })
         .addCase(sendBooking.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+        })
+        .addCase(getBookings.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(getBookings.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.allBookings = action.payload.data
+        })
+        .addCase(getBookings.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+        })
+        .addCase(deleteBooking.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(deleteBooking.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.allBookings = action.payload.data
+        })
+        .addCase(deleteBooking.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload
