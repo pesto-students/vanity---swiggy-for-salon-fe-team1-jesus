@@ -17,7 +17,7 @@ const Search = () => {
 
 
     return (
-        <div className="w-3/5">
+        <div className="w-3/5 phone:w-full">
             <div className="border-2 flex flex-row border-black text-gray-900 bg-white rounded-lg w-full">
                 <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search…" className="py-2 w-full placeholder:text-gray-900 px-2 outline-none" />
                 <button onClick={handleSearch} className="my-auto ml-auto bg-white px-2">

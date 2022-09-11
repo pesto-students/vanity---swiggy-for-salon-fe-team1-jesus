@@ -4,10 +4,10 @@ const Features = () => {
     return (
         <div className=" text-black bg-beige pt-20">
             <div className="bg-lightPink rounded-t-full">
-                <div className="container mx-auto px-16 py-24 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="container mx-auto phone:px-6 phone:py-10 px-16 py-24 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                     <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
-                        <div className="lg:w-1/2">
-                            <div className="max-w-md font-aboreto mb-6  text-5xl font-bold tracking-tight text-black  sm:leading-none xl:max-w-lg">
+                        <div className="lg:w-1/2 phone:w-full">
+                            <div className="max-w-md font-aboreto mb-6 phone:text-center text-5xl font-bold tracking-tight text-black  sm:leading-none xl:max-w-lg">
                                 HOW IT WORKS
                             </div>
                         </div>

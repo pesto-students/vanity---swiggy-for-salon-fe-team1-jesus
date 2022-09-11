@@ -54,16 +54,16 @@ const Login = () => {
     }
 
     return (
-        <div className="font-lora flex flex-row px-16 space-x-6 py-16 bg-lightPink">
-            <div className="w-1/2 flex flex-col space-y-2">
+        <div className="font-lora flex flex-row px-16 phone:px-6 space-x-6 phone:space-x-0 py-16 phone:items-center bg-lightPink">
+            <div className="w-1/2 flex flex-col space-y-2 phone:hidden">
                 <ToastContainer />
                 <img src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/login/salonpicloginpage1.jpeg" alt="salon pic login page" />
                 <img src="https://vanity-frontend.s3.ap-south-1.amazonaws.com/login/salonpicloginpage2.jpeg" alt="salon pic 2 login page" />
             </div>
-            <div className="w-1/2 flex flex-col text-xl p-10 space-y-6 items-center">
-                <div className="text-5xl mb-6 font-aboreto font-bold">Vanity</div>
-                <div className="font-bold ml-0 mr-auto">Get more on your salon visits.</div>
-                <div className="ml-0 mr-auto">Join us to get 10% off on your first appointment! </div>
+            <div className="w-1/2 phone:w-full phone:py-6 phone:px-0 flex flex-col text-xl p-10 space-y-6 items-center">
+                <div className="text-5xl mb-6 phone:text-center font-aboreto font-bold">Vanity</div>
+                <div className="font-bold ml-0 mr-auto phone:mx-auto">Get more on your salon visits.</div>
+                <div className="ml-0 mr-auto phone:text-center phone:mx-auto">Join us to get 10% off on your first appointment! </div>
                 <div className="w-full h-2"></div>
                 <Link to="/signup">
                     <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
@@ -77,7 +77,7 @@ const Login = () => {
                 <div className="w-full h-2"></div>
                 <Line />
                 <div className="w-full h-6"></div>
-                <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="email">
+                <label className="relative w-1/2 phone:w-full bg-white block p-3 border-2 border-black rounded" htmlFor="email">
                     <input
                         className="w-full px-0 bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                         id="email"
@@ -91,7 +91,7 @@ const Login = () => {
                         Email
                     </span>
                 </label>
-                <label className="relative w-1/2 block p-3 border-2 border-black rounded" htmlFor="password">
+                <label className="relative w-1/2 phone:w-full bg-white block p-3 border-2 border-black rounded" htmlFor="password">
                     <input
                         className="w-full px-0  bg-transparent pt-3.5 pb-0 outline-none text-sm placeholder-transparent border-none focus:ring-0 peer"
                         id="password"

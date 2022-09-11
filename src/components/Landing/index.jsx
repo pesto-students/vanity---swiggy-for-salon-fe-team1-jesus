@@ -8,7 +8,7 @@ const Landing = () => {
     const CTA = React.lazy(() => import('../../components/Landing/CTA.jsx'))
     const Footer = React.lazy(() => import('../../components/Landing/Footer.jsx'))
     return (
-        <div className="font-lora">
+        <div id="home" className="font-lora">
             <Hero />
             <Suspense fallback={<h1>Loading...</h1>}>
                 <Features />

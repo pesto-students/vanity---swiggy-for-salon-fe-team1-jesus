@@ -13,6 +13,8 @@ import Profile from "../components/Profile/index.jsx";
 import DashboardPage from "../pages/Dashboard/index.jsx";
 import SalonPage from "../pages/Salon/index.jsx";
 import PrivateRoutes from "./PrivateRoutes.jsx";
+import About from "../components/About/index.jsx";
+import FAQs from "../components/FAQs/index.jsx";
 
 const Routing = () => {
     return (
@@ -23,6 +25,8 @@ const Routing = () => {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/salon/:id" element={<SalonPage />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/faqs" element={<FAQs />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route element={<PrivateRoutes />}>

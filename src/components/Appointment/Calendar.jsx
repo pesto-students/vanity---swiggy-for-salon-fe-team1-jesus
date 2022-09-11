@@ -10,13 +10,13 @@ const AppointmentCalender = ({ newDate, setNewDate, newTime, setNewTime }) => {
     }
 
     return (
-        <div className="w-1/2 font-lora">
+        <div className="w-1/2 font-lora phone:w-full">
             <div className="text-right text-3xl mb-4 pb-6"> {handleDate(newDate)} </div>
-            <div className="border-black w-fit rounded float-right">
+            <div className="border-black w-fit phone:float-none rounded float-right">
                 <Calendar onChange={setNewDate} value={newDate} />
             </div>
             <div>
-                <select value={newTime} onChange={(e) => setNewTime(e.target.value)} id="slots" className=" w-3/4 float-right mt-10 border-black border-2 rounded outline-none p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                <select value={newTime} onChange={(e) => setNewTime(e.target.value)} id="slots" className=" w-3/4 phone:w-full phone:float-none float-right mt-10 border-black border-2 rounded outline-none p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                     <option className='px-10'>Select a time slot</option>
                     <option value="00:09:00">9:00 AM</option>
                     <option value="00:10:00">10:00 AM</option>

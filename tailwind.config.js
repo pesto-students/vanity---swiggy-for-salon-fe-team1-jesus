@@ -9,6 +9,9 @@ module.exports = withMT({
         aboreto: ['Aboreto', 'cursive'],
         lora: ['Lora', 'serif']
       },
+      screens: {
+        'phone': '300px'
+      },
       backgroundImage: {
         'lavenderbottom': "url('/public/bg/lavenderbottom.svg')",
         'minttop': "url('/public/bg/minttop.svg')",
@@ -33,7 +36,7 @@ module.exports = withMT({
         'cream': "#ffeaea",
         'lightPink': "#ffdede",
         'beige': "#FFCCB6"
-      }
+      },
     },
   },
   plugins: [],

@@ -13,7 +13,7 @@ function City({ city, setCity }) {
 
     return (
 
-        <div className='items-center mx-auto w-1/5 mr-4'>
+        <div className='items-center mx-auto w-1/5 phone:w-full mr-4'>
             <select value={city} onChange={(e) => setCity(e.target.value)} id="countries" className=" border-2 border-black w-full  text-gray-900 text-sm rounded outline-none p-[11px] ">
                 <option className='px-10'>Pick a city..</option>
                 {cities.map((item, i) => {
