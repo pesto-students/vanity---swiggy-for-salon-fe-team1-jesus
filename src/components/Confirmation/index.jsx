@@ -10,7 +10,7 @@ function AppointmentConfirmation() {
 
     const { latestBooking, isLoading } = useSelector((state) => state.booking)
     const { user } = useSelector((state) => state.auth)
-    const salonName = latestBooking?.data?.salonName
+    const salonName = latestBooking.data.salonName ? latestBooking.data.salonName : ""
     const navigate = useNavigate()
     const bookingDate = () => {
         const newD = Date(latestBooking?.data.bookingDate)
