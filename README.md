@@ -1,4 +1,4 @@
-#<img width="133" alt="Screenshot 2022-10-10 at 4 08 40 AM" src="https://user-images.githubusercontent.com/68868179/194782766-eb5922bd-2ae9-43b4-9534-964faf93a24e.png">
+<img width="133" alt="Screenshot 2022-10-10 at 4 08 40 AM" src="https://user-images.githubusercontent.com/68868179/194782766-eb5922bd-2ae9-43b4-9534-964faf93a24e.png">
 
 
 
@@ -23,13 +23,13 @@ For front-end repository <a href="https://github.com/pesto-students/vanity---swi
 
 # Demo
 
-[Live Demo](https://vanity-frontend-pesto.herokuapp.com/)
+[Live Demo](https://vanity-frontend-pesto.herokuapp.com/](https://63421955b7b1ef29a108eb18--stellular-sorbet-4bf76a.netlify.app/)
 
 <br/>
 
 Please Note:
 
-- We recommend using this app in latest browser with javascript support.
+- We recommend using this app in a latest browser with JavaScript support.
 - Try demo credentials </br>
   email: Simon@gmail.com </br>
   password: Simon123 </br>
@@ -79,6 +79,7 @@ We tried to use a completely modern tech stack while testing out some new techno
 # Authors
 
 - [Nishtha Arya](https://github.com/nishthaarya)
+- [Vivek Hande](https://github.com/VivekHande16)
 
 <br/>
 
