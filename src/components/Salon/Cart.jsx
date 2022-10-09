@@ -8,9 +8,17 @@ import { Link } from "react-router-dom"
 
 const SalonCart = () => {
 
+    let currentSalonName;
     const cart = useSelector((state) => state.cart)
+    const item = useSelector((state) => state.salon)
     const { user } = useSelector((state) => state.auth)
     const { currSalon } = useSelector((state) => state.cart)
+    if (cart.cart.length > 0) {
+        currentSalonName = currSalon.name
+    }
+    else {
+        currentSalonName = item.item.name
+    }
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
@@ -19,6 +27,7 @@ const SalonCart = () => {
     }
 
     const handleCurrent = () => {
+        console.log(cart.currSalonId)
         navigate(`/salon/${cart.currSalonId}`)
     }
 
@@ -37,7 +46,7 @@ const SalonCart = () => {
     return (
         <div className="w-2/6 phone:w-full phone:my-6 bg-lightPink border-black px-6 py-2 border-2 items-center text-center">
             <div className="text-2xl font-bold pt-8 pb-4">Cart</div>
-            <div className="text-xl bg-pink border-2 border-black rounded p-4 mb-8 font-bold">SALON: {currSalon?.name}</div>
+            <div className="text-xl bg-pink border-2 border-black rounded p-4 mb-8 font-bold">SALON: {currentSalonName}</div>
             {cart?.cart.map((item, i) => {
                 return (
                     <div key={i}>

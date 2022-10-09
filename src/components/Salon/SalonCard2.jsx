@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const SalonCard2 = () => {
-
     const { item } = useSelector((state) => state.salon)
 
     return (
