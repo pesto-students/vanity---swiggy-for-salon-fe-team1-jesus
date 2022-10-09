@@ -1,4 +1,6 @@
-# Vanity -- Swiggy for salons
+#<img width="133" alt="Screenshot 2022-10-10 at 4 08 40 AM" src="https://user-images.githubusercontent.com/68868179/194782766-eb5922bd-2ae9-43b4-9534-964faf93a24e.png">
+
+
 
 In the post pandemic world, the beauty and skin/hair care market is highly lucrative. Salons have high wait times, ambiguity about their prices, and not enough details for the client. Vanity solves that problem by creating a Salon managing application, where users can see salons near them, what services they offer, prices on said services, and the opportunity to book an appointment without ever talking to someone. We’re revolutionizing the way people look at and interact with Salons.
 <br/>
