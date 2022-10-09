@@ -48,15 +48,26 @@ const Navbar = () => {
                             </span>
                         </div></>)
                     :
-                    (<Link to="/login">
-                        <div className="cursor-pointer phone:mt-2 relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                            <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                    (<>
+                        <Link to="/login">
+                            <div className="cursor-pointer mr-4 phone:mt-2 relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
+                                <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
-                            <span className="relative block font-bold px-8 py-3 rounded bg-white border-2 border-current">
-                                Sign up
-                            </span>
-                        </div>
-                    </Link>)}
+                                <span className="relative block font-bold px-8 py-3 rounded bg-white border-2 border-current">
+                                    Log in
+                                </span>
+                            </div>
+                        </Link>
+                        <Link to="/signup">
+                            <div className="cursor-pointer phone:mt-2 relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
+                                <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
+
+                                <span className="relative block font-bold px-8 py-3 rounded bg-white border-2 border-current">
+                                    Sign up
+                                </span>
+                            </div>
+                        </Link>
+                    </>)}
             </div>
         </header>
     )
