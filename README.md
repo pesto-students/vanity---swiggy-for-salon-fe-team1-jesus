@@ -23,7 +23,7 @@ For front-end repository <a href="https://github.com/pesto-students/vanity---swi
 
 # Demo
 
-[Live Demo](https://vanity-frontend-pesto.herokuapp.com/](https://63421955b7b1ef29a108eb18--stellular-sorbet-4bf76a.netlify.app/)
+[Live Demo](https://63421955b7b1ef29a108eb18--stellular-sorbet-4bf76a.netlify.app/)
 
 <br/>
 
