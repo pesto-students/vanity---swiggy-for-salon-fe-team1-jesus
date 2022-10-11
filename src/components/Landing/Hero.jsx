@@ -11,7 +11,7 @@ const Hero = () => {
                         <br className="hidden lg:inline-block" /> IS HERE.
                     </div>
                     <p className="mb-8 text-lg leading-relaxed w-3/4 phone:w-full"> Booking an appointment at the Salon has never been this easy. And it never will. </p>
-                    <Link to="/signup">
+                    <Link to="/login">
                         <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
                             <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
