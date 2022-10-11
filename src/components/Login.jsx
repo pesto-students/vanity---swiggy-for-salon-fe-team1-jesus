@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Line from "./Line.jsx";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { dummyLogin, login } from "../redux/auth/authSlice";
+import { login } from "../redux/auth/authSlice";
 import Spinner from "./Spinner.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     const [userDetails, setUserDetails] = useState({
-        email: "",
-        password: ""
+        email: "Simon@gmail.com",
+        password: "Simon123"
     })
 
     const { email, password } = userDetails;
@@ -41,12 +40,6 @@ const Login = () => {
         }))
     }
 
-    const handleDummyLogin = (e) => {
-        e.preventDefault();
-        const payload = { email: "Simon@gmail.com", password: "Simon123" }
-        dispatch(dummyLogin(payload))
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const payload = { email: email, password: password }
@@ -70,16 +63,6 @@ const Login = () => {
                 <div className="text-5xl mb-6 phone:text-center font-aboreto font-bold">Vanity</div>
                 <div className="font-bold ml-0 mr-auto phone:mx-auto">Get more on your salon visits.</div>
                 <div className="ml-0 mr-auto phone:text-center phone:mx-auto">Join us to get 10% off on your first appointment! </div>
-                <div className="w-full h-2"></div>
-                <Link to="/signup">
-                    <div className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                        <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
-
-                        <span className="relative block px-20 py-3 rounded bg-white text-black border-2 border-current">
-                            Join Now
-                        </span>
-                    </div>
-                </Link>
                 <div className="w-full h-2"></div>
                 <Line />
                 <div className="w-full h-6"></div>
@@ -119,13 +102,6 @@ const Login = () => {
 
                     <span className="relative block px-20 py-3 rounded bg-white border-2 border-current">
                         Sign In
-                    </span>
-                </div>
-                <div onClick={(e) => handleDummyLogin(e)} className="cursor-pointer relative inline-block font-medium text-black group active:text-black focus:outline-none focus:ring">
-                    <span className="absolute inset-0 rounded transition-transform translate-x-1 translate-y-1 bg-black group-hover:translate-y-0 group-hover:translate-x-0"></span>
-
-                    <span className="relative block px-20 py-3 rounded bg-white border-2 border-current">
-                        Dummy Login
                     </span>
                 </div>
                 <div className="w-full h-2"></div>

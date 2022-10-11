@@ -14,7 +14,7 @@ const profiles = [
     },
     {
         "name": "Aditi Sharma",
-        "imageUrl": "https://vanity-frontend.s3.ap-south-1.amazonaws.com/website/profile2.jpeg",
+        "imageUrl": "https://vanity-frontend.s3.ap-south-1.amazonaws.com/website/profilewoman.jpeg",
         "review": "The process was seamless, and it has made booking a salon appointment so easy!"
     }
 ]
