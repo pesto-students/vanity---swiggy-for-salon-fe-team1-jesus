@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import SalonCard2 from "../Salon/SalonCard2.jsx";
 import SalonSpinner from '../Salon/SalonSpinner.jsx';
 import Button from "../Button.jsx"
-import Payment from './Payment.jsx';
 import { useNavigate } from 'react-router-dom'
 
 function AppointmentConfirmation() {
@@ -47,7 +46,6 @@ function AppointmentConfirmation() {
                         <div className='text-xl mt-4 font-bold'> Your appointment has been confirmed at {salonName} </div>
                         <div className='text-xl mt-4 font-bold'> for {bookingDate()} at  {startTime()} </div>
                         <div className='mt-6 mx-auto w-1/5 flex flex-row space-x-4'>
-                            <Payment payload={payload} />
                             <Button click={handlePayLater} clr="black" str="Pay at Salon"></Button>
                         </div>
                     </div>
