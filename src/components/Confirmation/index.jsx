@@ -17,12 +17,6 @@ function AppointmentConfirmation() {
         return `${finalD[0]} ${finalD[1]} ${finalD[2]} ${finalD[3]}`
     }
 
-    const payload = {
-        "paymentDate": latestBooking?.data.bookingDate,
-        "amount": latestBooking?.data.totalAmount,
-        "bookingId": latestBooking?.data.bookingId
-    }
-
     const startTime = () => {
         const startT = latestBooking?.data.startTime
         let t = startT.split(":");
