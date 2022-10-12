@@ -40,16 +40,15 @@ const AppointmentPage = () => {
     }
 
     const handleBookingDate = () => {
-        console.log(newDate, "newDate")
         let freshDate = newDate.toLocaleDateString();
         freshDate = freshDate.split("/")
         let finalString = freshDate[2] + "-" + freshDate[1] + "-" + freshDate[0]
         return finalString;
     }
 
-    const handleAppointment = () => {
+    const handleAppointment = async () => {
         navigate("/appointmentconfirmation")
-        const bookingDate = handleBookingDate()
+        const bookingDate = await handleBookingDate()
         const dummyDate = new Date();
         const endTime = handleEndTime();
         const payload = {
