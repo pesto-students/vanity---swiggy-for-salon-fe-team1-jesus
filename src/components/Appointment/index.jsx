@@ -40,6 +40,7 @@ const AppointmentPage = () => {
     }
 
     const handleBookingDate = () => {
+        console.log(newDate, "newDate")
         let freshDate = newDate.toLocaleDateString();
         freshDate = freshDate.split("/")
         let finalString = freshDate[2] + "-" + freshDate[1] + "-" + freshDate[0]
@@ -49,9 +50,10 @@ const AppointmentPage = () => {
     const handleAppointment = () => {
         navigate("/appointmentconfirmation")
         const bookingDate = handleBookingDate()
+        const dummyDate = new Date();
         const endTime = handleEndTime();
         const payload = {
-            bookingDate: bookingDate,
+            bookingDate: bookingDate ? bookingDate : dummyDate,
             startTime: newTime,
             endTime: endTime,
             serviceIds: serviceIds,
