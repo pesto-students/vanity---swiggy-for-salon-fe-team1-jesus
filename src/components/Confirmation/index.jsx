@@ -14,7 +14,7 @@ function AppointmentConfirmation() {
     const navigate = useNavigate()
 
     const startTime = () => {
-        const startT = latestBooking?.data.startTime
+        const startT = latestBooking?.data?.startTime ? latestBooking?.data?.startTime : "00:11:00"
         let t = startT.split(":");
         let finT = t[1];
         const hour = +finT % 24;
