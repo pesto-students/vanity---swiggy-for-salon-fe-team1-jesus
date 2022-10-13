@@ -10,6 +10,7 @@ function AppointmentConfirmation() {
     const { latestBooking, isLoading } = useSelector((state) => state.booking)
     const { user } = useSelector((state) => state.auth)
     const salonName = latestBooking?.data?.salonName || ""
+    const bookingDate = latestBooking?.data?.bookingDate || ""
     const navigate = useNavigate()
 
     const startTime = () => {
@@ -33,7 +34,7 @@ function AppointmentConfirmation() {
                     <div className='w-full rounded-t-[20%] phone:rounded phone:px-6 text-center h-screen flex flex-col bg-cream'>
                         <div className='text-4xl font-bold mt-10 font-aboreto'>Appointment Confirmed</div>
                         <div className='text-xl mt-4 font-bold'> Your appointment has been confirmed at {salonName} </div>
-                        <div className='text-xl mt-4 font-bold'> for {latestBooking?.data.bookingDate} at  {startTime()} </div>
+                        <div className='text-xl mt-4 font-bold'> for {bookingDate} at  {startTime()} </div>
                         <div className='mt-6 mx-auto w-1/5'>
                             <Button click={handlePayLater} clr="black" str="Pay at Salon"></Button>
                         </div>
