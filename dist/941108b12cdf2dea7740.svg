@@ -1,0 +1,48 @@
+var _Path, _Path2, _Path3, _Path4, _G, _Path5, _G2, _Defs;
+
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+import Svg, { Path, G, Defs } from "react-native-svg";
+/* SVGR has dropped some elements not supported by react-native-svg: filter */
+
+var SvgBglines = function SvgBglines(props) {
+  return /*#__PURE__*/React.createElement(Svg, _extends({
+    width: 2070,
+    height: 1103,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), _Path || (_Path = /*#__PURE__*/React.createElement(Path, {
+    transform: "matrix(.00004 1 -1 .00005 357.428 0)",
+    stroke: "#000",
+    d: "M0-.5h677.963"
+  })), _Path2 || (_Path2 = /*#__PURE__*/React.createElement(Path, {
+    transform: "rotate(90.163 609.986 901.045) skewX(.006)",
+    stroke: "#000",
+    d: "M0-.5h525.312"
+  })), _Path3 || (_Path3 = /*#__PURE__*/React.createElement(Path, {
+    transform: "rotate(89.647 747.95 768.668) skewX(.011)",
+    stroke: "#000",
+    d: "M0-.5h119.732"
+  })), _Path4 || (_Path4 = /*#__PURE__*/React.createElement(Path, {
+    stroke: "#000",
+    d: "M357.928 925.652V1103"
+  })), _G || (_G = /*#__PURE__*/React.createElement(G, {
+    filter: "url(#bglines_svg__a)"
+  }, /*#__PURE__*/React.createElement(Path, {
+    d: "M359.333 926.152c69.488 0 125.834-55.327 125.834-123.596S428.821 678.96 359.333 678.96c-69.487 0-125.833 55.327-125.833 123.596s56.346 123.596 125.833 123.596Z",
+    stroke: "#000",
+    shapeRendering: "crispEdges"
+  }))), _Path5 || (_Path5 = /*#__PURE__*/React.createElement(Path, {
+    stroke: "#000",
+    d: "m485 812.5 1585 .923M0 810.5h233.905M1592.76 214.549h323.05"
+  })), _G2 || (_G2 = /*#__PURE__*/React.createElement(G, {
+    filter: "url(#bglines_svg__b)"
+  }, /*#__PURE__*/React.createElement(Path, {
+    d: "M1592.26 214.675c0 43.316-35.75 78.446-79.88 78.446-44.12 0-79.88-35.13-79.88-78.446 0-43.316 35.76-78.446 79.88-78.446 44.13 0 79.88 35.13 79.88 78.446Z",
+    stroke: "#000",
+    shapeRendering: "crispEdges"
+  }))), _Defs || (_Defs = /*#__PURE__*/React.createElement(Defs, null)));
+};
+
+export default SvgBglines;
