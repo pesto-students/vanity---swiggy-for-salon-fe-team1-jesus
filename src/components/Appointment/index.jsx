@@ -5,6 +5,7 @@ import Button from "../Button.jsx"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { sendBooking } from "../../redux/booking/bookingSlice";
+import { reset } from "../../redux/cart/cartSlice";
 import SalonCardAppointment from "./SalonCardAppointment.jsx";
 import CartAppointment from "./CartAppointment.jsx";
 
@@ -61,6 +62,7 @@ const AppointmentPage = () => {
             salonId: currSalonId
         }
         dispatch(sendBooking(payload))
+        dispatch(reset());
     }
 
     return (
